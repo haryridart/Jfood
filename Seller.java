@@ -12,6 +12,8 @@ public class Seller
     private String email;
     private String phoneNumber;
     Location location;
+   
+    
     
     /**
     * Merupakan constructor dari Class Seller untuk membuat Seller

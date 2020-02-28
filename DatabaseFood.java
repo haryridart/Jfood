@@ -9,6 +9,7 @@ public class DatabaseFood
     // Mendefinisikan instance variables 
     private String listFood[];
 
+
     /**
     * Merupakan constructor dari Class DatabaseFood untuk membuat Database
     * makanan.
@@ -26,7 +27,7 @@ public class DatabaseFood
     */
     public boolean addFood(Food food)
     {
-        return false;
+        return true;
         
     }
     /**
