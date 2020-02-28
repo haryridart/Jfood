@@ -1,43 +1,57 @@
 
 /**
- * Write a description of class DatabaseFood here.
- *
+ * Class DatabaseFood digunakan untuk Merepresentasikan Database Makanan. 
  * @author Hary Ridart
  * @version 2020-02-27
  */
 public class DatabaseFood
 {
-    // instance variables - replace the example below with your own
+    // Mendefinisikan instance variables 
     private String listFood[];
 
     /**
-     * Constructor for objects of class DatabaseFood
-     */
+    * Merupakan constructor dari Class DatabaseFood untuk membuat Database
+    * makanan.
+    * @return Constructor tidak mengembalikan nilai.
+    */
     public DatabaseFood()
     {
-        // initialise instance variables
-        
+        // untuk menuliskan instance variables
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+    * Method ini digunakan untuk mengembalikan penambahan Makanan.
+    * @param food merupakan parameter makanan yang ditambahkan.
+    * @return Method ini mengembalikan nilai boolen.
+    */
     public boolean addFood(Food food)
     {
         return false;
         
     }
+    /**
+    * Method ini digunakan untuk mengembalikan Menghapus Makanan.
+    * @param food merupakan parameter makanan yang ditambahkan.
+    * @return Method ini mengembalikan nilai boolen.
+    */
     public boolean removeFood(Food food)
     {
         return false;
     }
+    /**
+    * Method ini digunakan untuk mengembalikan Makanan pada DatabaseFood .
+    * @param Belum ada parameter yang digunakan pada method ini.
+    * @return Method ini belum mengembalikan nilai.
+    */
     public Food getFood()
     {
         return null;
     }
+    /**
+    * Method ini digunakan untuk mengembalikan List Makanan pada DatabaseFood.
+    * @param Belum ada parameter yang digunakan pada method ini.
+    * @return Method ini belum mengembalikan nilai.
+    */
     public String[] getListFood()
     {
         return null;
