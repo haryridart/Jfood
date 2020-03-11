@@ -10,8 +10,9 @@ public class Food
     private int id;
     private String name;
     private int price;
-    private String category;
-    Seller seller;
+    private FoodCategory category;
+    private Seller seller;
+    
 
     /**
     * Merupakan constructor dari Class Food untuk membuat Food
@@ -22,7 +23,7 @@ public class Food
     * @param category merupakan kategori makanan(Food).
     * @return Constructor tidak mengembalikan nilai.
     */
-    public Food(int id,String name,Seller seller,int price, String category)
+    public Food(int id,String name,Seller seller,int price, FoodCategory category)
     {
         this.id = id;
         this.name = name;
@@ -66,12 +67,13 @@ public class Food
     {
         return price;
     }
+    
     /**
     * Method ini digunakan untuk mengembalikan nilai category makanan(Food)
     * @param Tidak ada parameter yang digunakan pada method ini.
     * @return Method ini mengembalikan nilai string dari category.
     */
-    public String getCatergory()
+    public FoodCategory getCatergory()
     {
         return category;
     }
@@ -116,7 +118,7 @@ public class Food
     * @param parameter category merupakan ketegori dari makanan(Food).
     * @return Method ini tidak mengembalikan nilai.
     */
-    public void setCategory(String category)
+    public void setCategory(FoodCategory category)
     {
         this.category = category;
     }
@@ -125,6 +127,12 @@ public class Food
     */
     public void printData()
     {
-        System.out.println(name);
+        System.out.println("==============FOOD============");
+        System.out.println("ID:" + id);
+        System.out.println("Name:" + name);
+        System.out.println("Seller:" + seller.getName());
+        System.out.println("City:" + seller.getLocation().getCity());
+        System.out.println("Price:" + price);
+        System.out.println("Category" + category);
     }
 }

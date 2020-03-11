@@ -1,20 +1,21 @@
 
 /**
- * Class DatabaseFood digunakan untuk Merepresentasikan Database Makanan. 
- * @author Hary Ridart
- * @version 2020-02-27
+ * Write a description of class DatabaseCustomer here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
  */
-public class DatabaseFood
+public class DatabaseCustomer
 {
     // Mendefinisikan instance variables 
-    private static String listFood[];
+    private static String listCustomer[];
 
     /**
     * Method ini digunakan untuk mengembalikan penambahan Makanan.
     * @param food merupakan parameter makanan yang ditambahkan.
     * @return Method ini mengembalikan nilai boolen.
     */
-    public static boolean addFood(Food food)
+    public static boolean addCustomer(Customer customer)
     {
         return true;
         
@@ -24,7 +25,7 @@ public class DatabaseFood
     * @param food merupakan parameter makanan yang ditambahkan.
     * @return Method ini mengembalikan nilai boolen.
     */
-    public static boolean removeFood(Food food)
+    public static boolean removeCustomer(Customer customer)
     {
         return false;
     }
@@ -33,7 +34,7 @@ public class DatabaseFood
     * @param Belum ada parameter yang digunakan pada method ini.
     * @return Method ini belum mengembalikan nilai.
     */
-    public static Food getFood()
+    public static Customer getCustomer()
     {
         return null;
     }
@@ -42,9 +43,9 @@ public class DatabaseFood
     * @param Belum ada parameter yang digunakan pada method ini.
     * @return Method ini belum mengembalikan nilai.
     */
-    public static String[] getListFood()
+    public static String[] getListCustomer()
     {
-        return listFood;
+        return listCustomer;
     }
     
 }

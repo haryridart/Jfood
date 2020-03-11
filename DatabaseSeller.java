@@ -8,17 +8,8 @@
 public class DatabaseSeller
 {
     // instance variables - replace the example below with your own
-    private String listSeller[];
+    private static String listSeller[];
 
-
-    /**
-     * Constructor for objects of class DatabaseSeller
-     */
-    public DatabaseSeller()
-    {
-        // initialise instance variables
-        
-    }
 
     /**
      * An example of a method - replace this comment with your own
@@ -26,7 +17,7 @@ public class DatabaseSeller
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public boolean addSeller(Seller seller)
+    public static boolean addSeller(Seller seller)
     {
         return true;
         
@@ -36,7 +27,7 @@ public class DatabaseSeller
     * @param seller merupakan parameter makanan yang ditambahkan.
     * @return Method ini mengembalikan nilai boolen.
     */
-    public boolean removeSeller(Seller seller)
+    public static boolean removeSeller(Seller seller)
     {
         return false;
     }
@@ -45,7 +36,7 @@ public class DatabaseSeller
     * @param Belum ada parameter yang digunakan pada method ini.
     * @return Method ini belum mengembalikan nilai.
     */
-    public Seller getSeller()
+    public static Seller getSeller()
     {
         return null;
     }
@@ -54,8 +45,8 @@ public class DatabaseSeller
     * @param Belum ada parameter yang digunakan pada method ini.
     * @return Method ini belum mengembalikan nilai.
     */
-    public String[] getListSeller()
+    public static String[] getListSeller()
     {
-        return null;
+        return listSeller;
     }
 }

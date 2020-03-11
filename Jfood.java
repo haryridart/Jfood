@@ -12,15 +12,12 @@ public class Jfood
        
         Location locationObj = new Location("Sukabumi","Jawa Barat", "Rumah Kita Semua" );
         Seller sellerObj = new Seller(1,"Hary","ridarth@gmail.com","6287716381565",locationObj);
-        Food foodObj = new Food(1,"Bakso",sellerObj,5000,"Lunch");
+        Food foodObj = new Food(1,"Bakso",sellerObj,5000,FoodCategory.Beverages);
         Customer customerObj = new Customer(1,"ukok","ukok@gmail.com","ukok2123","2020-02-27");
-        Invoice invoiceObj = new Invoice(1,1,"2020-02-27",customerObj,5000);
-        
+        Invoice invoiceObj = new Invoice(1,foodObj.getId(),"2020-02-27",customerObj,foodObj.getPrice(),InvoiceStatus.Finished);
+        invoiceObj.printData();
 
-        System.out.println(sellerObj.getName());
-        sellerObj.setName("Frenzel Timothy");
-        System.out.println(sellerObj.getName());
-        foodObj.printData();
+        
         
 
         
