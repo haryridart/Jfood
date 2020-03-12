@@ -13,7 +13,6 @@ public class Food
     private FoodCategory category;
     private Seller seller;
     
-
     /**
     * Merupakan constructor dari Class Food untuk membuat Food
     * @param id merupakan id makanan(Food)
@@ -67,7 +66,6 @@ public class Food
     {
         return price;
     }
-    
     /**
     * Method ini digunakan untuk mengembalikan nilai category makanan(Food)
     * @param Tidak ada parameter yang digunakan pada method ini.
@@ -136,3 +134,22 @@ public class Food
         System.out.println("Category" + category);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

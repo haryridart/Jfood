@@ -2,18 +2,17 @@
 /**
  * Class Invoice digunakan untuk Merepresentasikan Invoice transaksi. 
  * @author Hary Ridart
- * @version 2020-02-27
+ * @version 2020-03-12
  */
-public class Invoice
+public abstract class Invoice
 {
     // Mendefinisikan instance variables 
     private int id;
-    private int idFood;
+    private Food food;
     private String date;
-    private int totalPrice;
+    protected int totalPrice;
     private Customer customer;
-    private PaymentType paymentType;
-    private InvoiceStatus status;
+    private InvoiceStatus invoiceStatus;
 
     /**
     * Merupakan constructor dari Class Invoice untuk membuat Invoice
@@ -21,18 +20,17 @@ public class Invoice
     * @param idFood merupakan id dari makanan (Food).
     * @param date merupakan tanggal transaksi Invoice
     * @param customer merupakan customer pada Invoice.
-    * @param totalPrice merupakan total harga pada Invoice.
+    * @param invoiceStatus merupakan status Invoice pada Invoice.
     * @return Constructor tidak mengembalikan nilai.
     */
-    public Invoice(int id,int idFood,String date,Customer customer,int totalPrice, 
-    InvoiceStatus status)
+    public Invoice(int id,Food food,String date,Customer customer, 
+    InvoiceStatus invoiceStatus)
     {
         this.id = id;
-        this.idFood = idFood;
+        this.food = food;
         this.date = date;
         this.customer = customer;
-        this.totalPrice = totalPrice;
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai Id Invoice
@@ -48,9 +46,9 @@ public class Invoice
     * @param Tidak ada parameter yang digunakan pada method ini.
     * @return Method ini mengembalikan nilai int dari id makanan pada Invoice.
     */
-    public int getIdFood()
+    public Food getFood()
     {
-        return idFood;
+        return food;
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai date pada Invoice
@@ -79,13 +77,19 @@ public class Invoice
     {
         return customer;
     }
-    public PaymentType getPaymentType()
-    {
-        return paymentType;
-    }
+    /**
+    * Abstract Method ini digunakan untuk mendefinisikan method getPaymentType untuk dapat digunakan pada class lain.
+    * @param Tidak ada parameter yang digunakan pada method ini.
+    */
+    public abstract PaymentType getPaymentType();
+    /**
+    * Method ini digunakan untuk mengembalikan nilai invoiceStatus pada Invoice.
+    * @param Tidak ada parameter yang digunakan pada method ini.
+    * @return Method ini mengembalikan variable invoiceStatus pada Invoice.
+    */
     public InvoiceStatus getInvoiceStatus()
     {
-        return status;
+        return invoiceStatus;
     }
     /**
     * Method ini digunakan untuk menetapkan nilai id Invoice.
@@ -101,9 +105,9 @@ public class Invoice
     * @param parameter idFood merupakan id dari Food pada Invoice.
     * @return Method ini tidak mengembalikan nilai.
     */
-    public void setIdFoods(int idFood)
+    public void setFood(Food food)
     {
-        this.idFood = idFood;
+        this.food = food;
     }
     /**
     * Method ini digunakan untuk menetapkan nilai date pada Invoice.
@@ -119,10 +123,8 @@ public class Invoice
     * @param parameter totalPrice merupakan total harga pada Invoice.
     * @return Method ini tidak mengembalikan nilai.
     */
-    public void setTotalPrice(int totalPrice)
-    {
-        this.totalPrice =totalPrice;
-    }
+    public abstract void setTotalPrice();
+    
     /**
     * Method ini digunakan untuk menetapkan customer pada Invoice.
     * @param parameter customer merupakan customer dari Invoice.
@@ -132,27 +134,15 @@ public class Invoice
     {
         this.customer = customer;
     }
-    public void setPaymentType(PaymentType paymentType)
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus)
     {
-        this.paymentType = paymentType;
-    }
-    public void setInvoiceStatus(InvoiceStatus status)
-    {
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
     /**
-    * Method ini digunakan untuk mencetak.
+    * Method Abstract ini digunakan untuk mencetak dapat digunakan pada class lain.
     */
-    public void printData()
-    {
-        System.out.println("==========INVOICE=========");
-        System.out.println("ID: " + id);
-        System.out.println("Foood ID: " + idFood);
-        System.out.println("Date: " + date);
-        System.out.println("Customer: " + customer.getName());
-        System.out.println("Total Price: " + totalPrice);
-        System.out.println("Status: "+ status);
-        
-    }
+
+    public abstract void printData();
+    
     
 }

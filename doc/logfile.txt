@@ -1,8 +1,15 @@
-Project documentation
+Class documentation
 <---- javadoc command: ---->
 C:\Program Files\BlueJ\jdk\bin\javadoc.exe
--sourcepath
-C:\java\Jfood
+-author
+-version
+-nodeprecated
+-package
+-Xdoclint:none
+-noindex
+-notree
+-nohelp
+-nonavbar
 -source
 11
 -classpath
@@ -13,132 +20,17 @@ C:\java\Jfood\doc
 UTF-8
 -charset
 UTF-8
--doctitle
-Jfood
--windowtitle
-Jfood
--author
--version
--nodeprecated
--package
--Xdoclint:none
--link
-https://docs.oracle.com/en/java/javase/11/docs/api/
-C:\java\Jfood/DatabaseFood.java
-C:\java\Jfood/Invoice.java
-C:\java\Jfood/Customer.java
-C:\java\Jfood/Jfood.java
-C:\java\Jfood/Seller.java
-C:\java\Jfood/Food.java
-C:\java\Jfood/Location.java
+C:\java\Jfood\Jfood.java
 <---- end of javadoc command ---->
-Loading source file C:\java\Jfood\DatabaseFood.java...
-Loading source file C:\java\Jfood\Invoice.java...
-Loading source file C:\java\Jfood\Customer.java...
 Loading source file C:\java\Jfood\Jfood.java...
-Loading source file C:\java\Jfood\Seller.java...
-Loading source file C:\java\Jfood\Food.java...
-Loading source file C:\java\Jfood\Location.java...
 Constructing Javadoc information...
 Standard Doclet version 11.0.2
 Building tree for all the packages and classes...
-Generating C:\java\Jfood\doc\Customer.html...
-C:\java\Jfood\Customer.java:23: warning - Tag @return cannot be used in constructor documentation.  It can only be used in the following types of documentation: method.
-C:\java\Jfood\Customer.java:22: warning - @param argument "joidDate" is not a parameter name.
-C:\java\Jfood\Customer.java:35: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Customer.java:44: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Customer.java:53: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Customer.java:62: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Customer.java:71: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Customer.java:80: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Customer.java:83: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Customer.java:89: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Customer.java:92: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Customer.java:98: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Customer.java:101: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Customer.java:107: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Customer.java:110: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Customer.java:116: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Customer.java:119: warning - @return tag cannot be used in method with void return type.
-Generating C:\java\Jfood\doc\DatabaseFood.html...
-C:\java\Jfood\DatabaseFood.java:15: warning - Tag @return cannot be used in constructor documentation.  It can only be used in the following types of documentation: method.
-C:\java\Jfood\DatabaseFood.java:43: warning - @param argument "Belum" is not a parameter name.
-C:\java\Jfood\DatabaseFood.java:52: warning - @param argument "Belum" is not a parameter name.
-Generating C:\java\Jfood\doc\Food.html...
-C:\java\Jfood\Food.java:23: warning - Tag @return cannot be used in constructor documentation.  It can only be used in the following types of documentation: method.
-C:\java\Jfood\Food.java:35: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Food.java:44: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Food.java:53: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Food.java:62: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Food.java:71: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Food.java:80: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Food.java:83: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Food.java:89: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Food.java:92: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Food.java:98: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Food.java:101: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Food.java:107: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Food.java:110: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Food.java:116: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Food.java:119: warning - @return tag cannot be used in method with void return type.
-Generating C:\java\Jfood\doc\Invoice.html...
-C:\java\Jfood\Invoice.java:23: warning - Tag @return cannot be used in constructor documentation.  It can only be used in the following types of documentation: method.
-C:\java\Jfood\Invoice.java:35: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Invoice.java:44: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Invoice.java:53: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Invoice.java:62: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Invoice.java:71: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Invoice.java:80: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Invoice.java:83: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Invoice.java:89: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Invoice.java:92: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Invoice.java:98: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Invoice.java:101: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Invoice.java:107: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Invoice.java:110: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Invoice.java:116: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Invoice.java:119: warning - @return tag cannot be used in method with void return type.
 Generating C:\java\Jfood\doc\Jfood.html...
-Generating C:\java\Jfood\doc\Location.html...
-C:\java\Jfood\Location.java:20: warning - Tag @return cannot be used in constructor documentation.  It can only be used in the following types of documentation: method.
-C:\java\Jfood\Location.java:31: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Location.java:40: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Location.java:49: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Location.java:58: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Location.java:61: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Location.java:67: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Location.java:70: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Location.java:76: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Location.java:79: warning - @return tag cannot be used in method with void return type.
-Generating C:\java\Jfood\doc\Seller.html...
-C:\java\Jfood\Seller.java:23: warning - Tag @return cannot be used in constructor documentation.  It can only be used in the following types of documentation: method.
-C:\java\Jfood\Seller.java:36: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Seller.java:45: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Seller.java:54: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Seller.java:63: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Seller.java:72: warning - @param argument "Tidak" is not a parameter name.
-C:\java\Jfood\Seller.java:81: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Seller.java:84: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Seller.java:90: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Seller.java:93: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Seller.java:99: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Seller.java:102: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Seller.java:108: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Seller.java:111: warning - @return tag cannot be used in method with void return type.
-C:\java\Jfood\Seller.java:117: warning - @param argument "parameter" is not a parameter name.
-C:\java\Jfood\Seller.java:120: warning - @return tag cannot be used in method with void return type.
 Generating C:\java\Jfood\doc\package-summary.html...
-Generating C:\java\Jfood\doc\package-tree.html...
 Generating C:\java\Jfood\doc\constant-values.html...
 Building index for all the packages and classes...
-Generating C:\java\Jfood\doc\overview-tree.html...
-Generating C:\java\Jfood\doc\index-all.html...
-Building index for all classes...
-Generating C:\java\Jfood\doc\allclasses-index.html...
-Generating C:\java\Jfood\doc\allpackages-index.html...
 Building index for all classes...
 Generating C:\java\Jfood\doc\allclasses.html...
 Generating C:\java\Jfood\doc\allclasses.html...
 Generating C:\java\Jfood\doc\index.html...
-Generating C:\java\Jfood\doc\help-doc.html...
-78 warnings

@@ -1,9 +1,9 @@
 
 /**
- * Enumeration class FoodCategory - write a description of the enum class here
- *
- * @author (your name here)
- * @version (version number or date here)
+ * Enumeration class FoodCategory 
+ * Digunakan untuk dipanggil terhadap jenis makanan yang akan digunakan
+ * @author Hary Ridart
+ * @version 2020-03-12
  */
 public enum FoodCategory
 {

@@ -1,9 +1,9 @@
 
 /**
- * Enumeration class InvoiceStatus - write a description of the enum class here
- *
- * @author (your name here)
- * @version (version number or date here)
+ * Enumeration class InvoiceStatus 
+ * Digunakan untuk dipanggil terhadap invoiceStatus yang akan digunakan
+ * @author Hary Ridart
+ * @version 2020-03-12
  */
 public enum InvoiceStatus
 {
