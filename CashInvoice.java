@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class CashlessInvoice here.
  *
@@ -6,11 +5,11 @@
  * @version 2020-03-12
  */
 
-public class CashlessInvoice extends Invoice
+public class CashInvoice extends Invoice
 {
     // instance variables - replace the example below with your own
-    private final static PaymentType PAYMENT_TYPE = PaymentType.Cashless;
-    private Promo promo;
+    private final static PaymentType PAYMENT_TYPE = PaymentType.Cash;
+    private int deliveryFee;
 
     /**
     * Merupakan constructor dari Class Food untuk membuat Food
@@ -21,7 +20,7 @@ public class CashlessInvoice extends Invoice
     * @param category merupakan kategori makanan(Food).
     * @return Constructor tidak mengembalikan nilai.
     */
-    public CashlessInvoice(int id, Food food, String date, Customer customer,
+    public CashInvoice(int id, Food food, String date, Customer customer,
     InvoiceStatus invoiceStatus)
     {
         // initialise instance variables
@@ -36,12 +35,12 @@ public class CashlessInvoice extends Invoice
     * @param promo merupakan objek promo yang digunakan
     * @return Constructor tidak mengembalikan nilai.
     */
-    public CashlessInvoice(int id, Food food, String date, Customer customer,
-    InvoiceStatus invoiceStatus, Promo promo)
+    public CashInvoice(int id, Food food, String date, Customer customer,
+    InvoiceStatus invoiceStatus, int deliveryFee)
     {
         // put your code here
         super(id,food,date,customer,invoiceStatus);
-        this.promo = promo;
+        this.deliveryFee = deliveryFee;
         
     }
     /**
@@ -58,18 +57,18 @@ public class CashlessInvoice extends Invoice
     * @param Tidak ada parameter yang digunakan pada method ini.
     * @return Method ini mengembalikan nilai promo
     */
-    public Promo getPromo()
+    public int getDeliveryFee()
     {
-        return promo;
+        return deliveryFee;
     }
     /**
     * Method ini digunakan untuk menetapkan promo
     * @param parameter promo
     * @return Method ini tidak mengembalikan nilai.
     */
-    public void setPromo (Promo promo)
+    public void setDeliveryFee (int deliveryFee)
     {
-        this.promo = promo;
+        this.deliveryFee = deliveryFee;
     }
     /**
     * Method ini digunakan untuk menetapkan nilai dengan ketentuan tertentu
@@ -78,11 +77,10 @@ public class CashlessInvoice extends Invoice
     */
     public void setTotalPrice()
     {
-        if(promo != null && promo.getActive() == true && 
-        getFood().getPrice() >= promo.getMinPrice())
+        if(deliveryFee >=0)
         {
              
-            super.totalPrice = getFood().getPrice() - getPromo().getDiscount();
+            super.totalPrice = getFood().getPrice() + getDeliveryFee();
         }
         else
         {
@@ -97,13 +95,14 @@ public class CashlessInvoice extends Invoice
     @Override
     public void printData()
     {
-        if(promo == null || promo.getActive() == false || 
-        getFood().getPrice() < promo.getMinPrice())
+        if(deliveryFee >= 0)
         {
             System.out.println("=========INVOICE=========");
             System.out.println("ID: " + getId());
+            System.out.println("Food: " + getFood().getName());
             System.out.println("Date: " + super.getFood().getName());
             System.out.println("Customer: "+ super.getCustomer().getName());
+            System.out.println("Delivery Fee: " + getDeliveryFee());
             System.out.println("Total Price: " + getTotalPrice() );
             System.out.println("Status: " + getInvoiceStatus());
             System.out.println("Payment: " + getPaymentType());
@@ -118,7 +117,7 @@ public class CashlessInvoice extends Invoice
             System.out.println("Total Price: " + getTotalPrice());
             System.out.println("Status: " + getInvoiceStatus());
             System.out.println("Payment: " + getPaymentType());
-            System.out.println("Code: " + promo.getCode());
         }
     }
 }
+

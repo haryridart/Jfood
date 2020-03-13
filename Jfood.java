@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class Jfood here.
  *
@@ -22,27 +21,46 @@ public class Jfood
         Food foodObj1 = new Food(1,"Mie Ayam",sellerObj,16000,FoodCategory.Beverages);
         Food foodObj2 = new Food(1,"Babi Panggang",sellerObj,46000,FoodCategory.Beverages);
         
-        CashlessInvoice cashlessInvoiceObj = new CashlessInvoice(
-        1, foodObj, "12/3/2020", customerObj,InvoiceStatus.Ongoing,promoObj);
-        cashlessInvoiceObj.setTotalPrice();
-        cashlessInvoiceObj.printData();
+        // CashlessInvoice cashlessInvoiceObj = new CashlessInvoice(
+        // 1, foodObj, "12/3/2020", customerObj,InvoiceStatus.Ongoing,promoObj);
+        // cashlessInvoiceObj.setTotalPrice();
+        // cashlessInvoiceObj.printData();
         
-        CashlessInvoice cashlessInvoiceObj1 = new CashlessInvoice(
-        2, foodObj1, "12/3/2020", customerObj,InvoiceStatus.Finished);
-        cashlessInvoiceObj1.setTotalPrice();
-        cashlessInvoiceObj1.printData();
+        // CashlessInvoice cashlessInvoiceObj1 = new CashlessInvoice(
+        // 2, foodObj1, "12/3/2020", customerObj,InvoiceStatus.Finished);
+        // cashlessInvoiceObj1.setTotalPrice();
+        // cashlessInvoiceObj1.printData();
 
-        CashlessInvoice cashlessInvoiceObj2 = new CashlessInvoice(
-        3, foodObj1, "12/3/2020", customerObj,InvoiceStatus.Finished,promoObj);
-        cashlessInvoiceObj2.setTotalPrice();
-        cashlessInvoiceObj2.printData();
+        // CashlessInvoice cashlessInvoiceObj2 = new CashlessInvoice(
+        // 3, foodObj1, "12/3/2020", customerObj,InvoiceStatus.Finished,promoObj);
+        // cashlessInvoiceObj2.setTotalPrice();
+        // cashlessInvoiceObj2.printData();
         
-        CashlessInvoice cashlessInvoiceObj3 = new CashlessInvoice(
-        4, foodObj2, "12/3/2020", customerObj,InvoiceStatus.Finished,promoObj);
-        cashlessInvoiceObj3.setTotalPrice();
-        cashlessInvoiceObj3.printData();
+        // CashlessInvoice cashlessInvoiceObj3 = new CashlessInvoice(
+        // 4, foodObj2, "12/3/2020", customerObj,InvoiceStatus.Finished,promoObj);
+        // cashlessInvoiceObj3.setTotalPrice();
+        // cashlessInvoiceObj3.printData();
+        
+
+
+
+        CashInvoice cashInvoiceObj = new CashInvoice(
+        1, foodObj, "12/3/2020", customerObj,InvoiceStatus.Finished);
+        cashInvoiceObj.setTotalPrice();
+        cashInvoiceObj.printData();
         
         
+        CashInvoice cashInvoiceObj1 = new CashInvoice(
+        1, foodObj, "12/3/2020", customerObj,InvoiceStatus.Finished);
+        cashInvoiceObj1.setTotalPrice();
+        cashInvoiceObj1.printData();
+        
+        cashInvoiceObj1.setDeliveryFee(6000);
+        CashInvoice cashInvoiceObj2 = new CashInvoice(
+        1, foodObj, "12/3/2020", customerObj,InvoiceStatus.Finished,cashInvoiceObj1.getDeliveryFee());
+        cashInvoiceObj1.setTotalPrice();
+        
+        cashInvoiceObj1.printData();
         
         
         
@@ -55,4 +73,15 @@ public class Jfood
 
     }
     
+    
+    
 }
+
+
+
+
+
+
+
+
+
