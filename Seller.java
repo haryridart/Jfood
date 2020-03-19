@@ -124,8 +124,11 @@ public class Seller
     /**
     * Method ini digunakan untuk mencetak.
     */
-    public void printData()
+    public String toString()
     {
-        System.out.println(name);
+        return "\nID: " + id +
+        "\nNama: " + name +
+        "\nPhone Number: " + phoneNumber +
+        "\nLocation: " + getLocation();      
     }
 }

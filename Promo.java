@@ -128,13 +128,14 @@ public class Promo
     * @param method ini tidak memiliki parameter
     * @return Method ini tidak mengembalikan nilai.
     */
-    public void printData()
+    public String toString()
     {
-        System.out.println(id);
-        System.out.println(code);
-        System.out.println(discount);
-        System.out.println(minPrice);
-        System.out.println(active);
+        return "\nID: " + id +
+        "\nCode: " + code +
+        "\nDiscount: " + discount +
+        "\nMinimum Price: " + minPrice +
+        "\nActiveStatus: " + active;
+        
     }
         
 }
