@@ -50,6 +50,7 @@ public class Customer
         setEmail(email);
         setPassword(password);
         
+        
     }
     public Customer(int id,String name,String email,String password)
     {
@@ -59,6 +60,7 @@ public class Customer
         this.password = password;
         setEmail(email);
         setPassword(password);
+        this.joinDate = Calendar.getInstance();
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai Id Customer

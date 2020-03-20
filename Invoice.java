@@ -4,12 +4,19 @@
  * @author Hary Ridart
  * @version 2020-03-12
  */
+import java.util.Calendar;
+import java.util.GregorianCalendar; 
+import java.util.regex.*;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import java.text.SimpleDateFormat;  
+import java.util.Date; 
 public abstract class Invoice
 {
     // Mendefinisikan instance variables 
     private int id;
     private Food food;
-    private String date;
+    private Calendar date;
     protected int totalPrice;
     private Customer customer;
     private InvoiceStatus invoiceStatus;
@@ -23,12 +30,11 @@ public abstract class Invoice
     * @param invoiceStatus merupakan status Invoice pada Invoice.
     * @return Constructor tidak mengembalikan nilai.
     */
-    public Invoice(int id,Food food,String date,Customer customer, 
+    public Invoice(int id,Food food,Customer customer, 
     InvoiceStatus invoiceStatus)
     {
         this.id = id;
         this.food = food;
-        this.date = date;
         this.customer = customer;
         this.invoiceStatus = invoiceStatus;
     }
@@ -55,7 +61,7 @@ public abstract class Invoice
     * @param Tidak ada parameter yang digunakan pada method ini.
     * @return Method ini mengembalikan nilai string dari date Invoice.
     */
-    public String getDate()
+    public Calendar getDate()
     {
         return date;
     }    
@@ -114,9 +120,13 @@ public abstract class Invoice
     * @param parameter date merupakan tanggal pada Invoice.
     * @return Method ini tidak mengembalikan nilai.
     */
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
         this.date = date;
+    }
+    public void setDate(int year, int month, int dayOfMonth)
+    {
+        this.date = new GregorianCalendar(year,month,dayOfMonth);
     }
     /**
     * Method ini digunakan untuk menetapkan nilai totalPrice Invoice.
@@ -142,7 +152,7 @@ public abstract class Invoice
     * Method Abstract ini digunakan untuk mencetak dapat digunakan pada class lain.
     */
 
-    public abstract void printData();
+    public abstract String toString();
     
     
 }

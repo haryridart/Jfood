@@ -20,11 +20,11 @@ public class CashInvoice extends Invoice
     * @param category merupakan kategori makanan(Food).
     * @return Constructor tidak mengembalikan nilai.
     */
-    public CashInvoice(int id, Food food, String date, Customer customer,
-    InvoiceStatus invoiceStatus)
+    public CashInvoice(int id, Food food, Customer customer,InvoiceStatus invoiceStatus)
     {
         // initialise instance variables
-        super(id,food,date,customer,invoiceStatus);
+        super(id,food,customer,invoiceStatus);
+        
     }
     /**
     * Merupakan method overload dari method ClashlessInvoice 
@@ -35,11 +35,11 @@ public class CashInvoice extends Invoice
     * @param promo merupakan objek promo yang digunakan
     * @return Constructor tidak mengembalikan nilai.
     */
-    public CashInvoice(int id, Food food, String date, Customer customer,
+    public CashInvoice(int id, Food food, Customer customer,
     InvoiceStatus invoiceStatus, int deliveryFee)
     {
         // put your code here
-        super(id,food,date,customer,invoiceStatus);
+        super(id,food,customer,invoiceStatus);
         this.deliveryFee = deliveryFee;
         
     }
@@ -93,31 +93,9 @@ public class CashInvoice extends Invoice
     * @return Method ini tidak mengembalikan nilai.
     */
     @Override
-    public void printData()
+    public String toString()
     {
-        if(deliveryFee >= 0)
-        {
-            System.out.println("=========INVOICE=========");
-            System.out.println("ID: " + getId());
-            System.out.println("Food: " + getFood().getName());
-            System.out.println("Date: " + super.getFood().getName());
-            System.out.println("Customer: "+ super.getCustomer().getName());
-            System.out.println("Delivery Fee: " + getDeliveryFee());
-            System.out.println("Total Price: " + getTotalPrice() );
-            System.out.println("Status: " + getInvoiceStatus());
-            System.out.println("Payment: " + getPaymentType());
-            
-        }
-        else
-        {
-            System.out.println("=========INVOICE=========");
-            System.out.println("ID: " + getId());
-            System.out.println("Date: " + super.getFood().getName());
-            System.out.println("Customer: "+ super.getCustomer().getName());
-            System.out.println("Total Price: " + getTotalPrice());
-            System.out.println("Status: " + getInvoiceStatus());
-            System.out.println("Payment: " + getPaymentType());
-        }
+       return null;
     }
 }
 

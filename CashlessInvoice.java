@@ -21,11 +21,11 @@ public class CashlessInvoice extends Invoice
     * @param category merupakan kategori makanan(Food).
     * @return Constructor tidak mengembalikan nilai.
     */
-    public CashlessInvoice(int id, Food food, String date, Customer customer,
+    public CashlessInvoice(int id, Food food, Customer customer,
     InvoiceStatus invoiceStatus)
     {
         // initialise instance variables
-        super(id,food,date,customer,invoiceStatus);
+        super(id,food,customer,invoiceStatus);
     }
     /**
     * Merupakan method overload dari method ClashlessInvoice 
@@ -95,30 +95,14 @@ public class CashlessInvoice extends Invoice
     * @return Method ini tidak mengembalikan nilai.
     */
     @Override
-    public void printData()
+    public String toString()
     {
-        if(promo == null || promo.getActive() == false || 
-        getFood().getPrice() < promo.getMinPrice())
-        {
-            System.out.println("=========INVOICE=========");
-            System.out.println("ID: " + getId());
-            System.out.println("Date: " + super.getFood().getName());
-            System.out.println("Customer: "+ super.getCustomer().getName());
-            System.out.println("Total Price: " + getTotalPrice() );
-            System.out.println("Status: " + getInvoiceStatus());
-            System.out.println("Payment: " + getPaymentType());
-            
-        }
-        else
-        {
-            System.out.println("=========INVOICE=========");
-            System.out.println("ID: " + getId());
-            System.out.println("Date: " + super.getFood().getName());
-            System.out.println("Customer: "+ super.getCustomer().getName());
-            System.out.println("Total Price: " + getTotalPrice());
-            System.out.println("Status: " + getInvoiceStatus());
-            System.out.println("Payment: " + getPaymentType());
-            System.out.println("Code: " + promo.getCode());
-        }
+        return "=========INVOICE=========";
+            "ID: " + getId() +
+            "Date: " + super.getFood().getName()+
+            "Customer: "+ super.getCustomer().getName()+
+            "Total Price: " + getTotalPrice()  +
+            "Status: " + getInvoiceStatus()+
+            "Payment: " +  getPaymentType();
     }
 }
