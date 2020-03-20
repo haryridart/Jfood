@@ -5,7 +5,13 @@
  * @author Hary Ridart
  * @version 2020-03-12
  */
-
+import java.util.Calendar;
+import java.util.GregorianCalendar; 
+import java.util.regex.*;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import java.text.SimpleDateFormat;  
+import java.util.Date; 
 public class CashlessInvoice extends Invoice
 {
     // instance variables - replace the example below with your own
@@ -36,11 +42,11 @@ public class CashlessInvoice extends Invoice
     * @param promo merupakan objek promo yang digunakan
     * @return Constructor tidak mengembalikan nilai.
     */
-    public CashlessInvoice(int id, Food food, String date, Customer customer,
+    public CashlessInvoice(int id, Food food, Customer customer,
     InvoiceStatus invoiceStatus, Promo promo)
     {
         // put your code here
-        super(id,food,date,customer,invoiceStatus);
+        super(id,food,customer,invoiceStatus);
         this.promo = promo;
         
     }
@@ -97,7 +103,7 @@ public class CashlessInvoice extends Invoice
     @Override
     public String toString()
     {
-        return "=========INVOICE=========";
+        return "=========INVOICE========="+
             "ID: " + getId() +
             "Date: " + super.getFood().getName()+
             "Customer: "+ super.getCustomer().getName()+

@@ -15,26 +15,33 @@ public class Jfood
        
         Location locationObj = new Location("Sukabumi","Jawa Barat", "Rumah Kita Semua" );
         Seller sellerObj = new Seller(1,"Hary","ridarth@gmail.com","6287716381565",locationObj);
-        
-      
-        Calendar joinDate = new GregorianCalendar(2020,01,20);
-        System.out.println("====Sebelum Diubah Email dan Password====");
-        Customer customerObj1 = new Customer (1,"Hary", "ridarth@gmail.com", "hehe",joinDate);
+        Food foodObj = new Food(1,"Bakso",sellerObj,12000,FoodCategory.Beverages);
         Customer customerObj2 = new Customer (1,"Hary", "ridarth@gmail.com", "Tangina123", 2020,03,19);
-        Customer customerObj3 = new Customer (1,"Hary", "ridarth@gmail.com", "hehe" );
+        CashInvoice cashInvoiceObj = new CashInvoice(
+        1, foodObj, customerObj2,InvoiceStatus.Finished);
+        CashlessInvoice cashlessInvoiceObj = new CashlessInvoice(
+        1, foodObj, customerObj2,InvoiceStatus.Ongoing);
         
-        System.out.println("====Pengubahan Email dan Password====");
+        CashInvoiceObj.toString();
+        CashlessInvoiceObj.toString();
+        // Calendar joinDate = new GregorianCalendar(2020,01,20);
+        // System.out.println("====Sebelum Diubah Email dan Password====");
+        // Customer customerObj1 = new Customer (1,"Hary", "ridarth@gmail.com", "hehe",joinDate);
+        // Customer customerObj2 = new Customer (1,"Hary", "ridarth@gmail.com", "Tangina123", 2020,03,19);
+        // Customer customerObj3 = new Customer (1,"Hary", "ridarth@gmail.com", "hehe" );
+        
+        // System.out.println("====Pengubahan Email dan Password====");
 
-        customerObj1.setEmail(",haryridart1@gmail.com");
-        customerObj1.setEmail("a,haryridart2@-gmail.com");
-        customerObj1.setEmail("haryridart3@gmail.com");
+        // customerObj1.setEmail(",haryridart1@gmail.com");
+        // customerObj1.setEmail("a,haryridart2@-gmail.com");
+        // customerObj1.setEmail("haryridart3@gmail.com");
 
         
-        customerObj1.setPassword("1998");
-        customerObj1.setPassword("Narumi123");
-        customerObj1.setPassword("tesakhir3");
+        // customerObj1.setPassword("1998");
+        // customerObj1.setPassword("Narumi123");
+        // customerObj1.setPassword("tesakhir3");
         
-         customerObj1.toString();
+         // customerObj1.toString();
         // customerObj2.toString();
         // customerObj3.toString();
         

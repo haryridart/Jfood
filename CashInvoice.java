@@ -95,7 +95,13 @@ public class CashInvoice extends Invoice
     @Override
     public String toString()
     {
-       return null;
+        return "=========INVOICE========="+
+            "ID: " + getId() +
+            "Date: " + super.getFood().getName()+
+            "Customer: "+ super.getCustomer().getName()+
+            "Total Price: " + getTotalPrice()  +
+            "Status: " + getInvoiceStatus()+
+            "Payment: " +  getPaymentType();
     }
 }
 
