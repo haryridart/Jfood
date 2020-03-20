@@ -16,16 +16,27 @@ public class Jfood
         Location locationObj = new Location("Sukabumi","Jawa Barat", "Rumah Kita Semua" );
         Seller sellerObj = new Seller(1,"Hary","ridarth@gmail.com","6287716381565",locationObj);
         
-        //Object 1 masih error pemanggilan
-        // Calendar joinDate = new GregorianCalendar(2020,03,19);
-        // Customer customerObj1 = new Customer (1,"Hary", "ridarth@gmail.com", "hehe",strDate);
-        // customerObj1.toString();
-        
+      
+        Calendar joinDate = new GregorianCalendar(2020,01,20);
+        System.out.println("====Sebelum Diubah Email dan Password====");
+        Customer customerObj1 = new Customer (1,"Hary", "ridarth@gmail.com", "hehe",joinDate);
         Customer customerObj2 = new Customer (1,"Hary", "ridarth@gmail.com", "Tangina123", 2020,03,19);
-        customerObj2.toString();
-        
         Customer customerObj3 = new Customer (1,"Hary", "ridarth@gmail.com", "hehe" );
-        customerObj3.toString();
+        
+        System.out.println("====Pengubahan Email dan Password====");
+
+        customerObj1.setEmail(",haryridart1@gmail.com");
+        customerObj1.setEmail("a,haryridart2@-gmail.com");
+        customerObj1.setEmail("haryridart3@gmail.com");
+
+        
+        customerObj1.setPassword("1998");
+        customerObj1.setPassword("Narumi123");
+        customerObj1.setPassword("tesakhir3");
+        
+         customerObj1.toString();
+        // customerObj2.toString();
+        // customerObj3.toString();
         
         //Invoice invoiceObj = new Invoice(1,foodObj.getId(),"2020-02-27",customerObj,foodObj.getPrice(),InvoiceStatus.Finished);
         //invoiceObj.printData();

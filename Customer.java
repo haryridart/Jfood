@@ -9,6 +9,8 @@ import java.util.GregorianCalendar;
 import java.util.regex.*;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
 public class Customer
 {
     // instance variables - Digunakan pada class Customer
@@ -185,6 +187,7 @@ public class Customer
     */
     public String toString()
     {
+        
         return "\nID: " + id +
         "\nNama: " + name +
         "\nEmail: " + email +
