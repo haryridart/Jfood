@@ -5,13 +5,9 @@
  * @author Hary Ridart
  * @version 2020-03-12
  */
-import java.util.Calendar;
-import java.util.GregorianCalendar; 
-import java.util.regex.*;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-import java.text.SimpleDateFormat;  
-import java.util.Date; 
+
+import java.util.*;
+import java.text.SimpleDateFormat;   
 public class CashlessInvoice extends Invoice
 {
     // instance variables - replace the example below with your own
@@ -100,15 +96,35 @@ public class CashlessInvoice extends Invoice
     * @param tidak ada parameter yang digunakan
     * @return Method ini tidak mengembalikan nilai.
     */
-    @Override
+    
     public String toString()
+   
     {
-        return "=========INVOICE========="+
-            "ID: " + getId() +
-            "Date: " + super.getFood().getName()+
-            "Customer: "+ super.getCustomer().getName()+
-            "Total Price: " + getTotalPrice()  +
-            "Status: " + getInvoiceStatus()+
-            "Payment: " +  getPaymentType();
+        SimpleDateFormat format1 = new SimpleDateFormat("dd MMMM yyyy");
+        String date1 = format1.format(getDate().getTime());
+        String print;
+        if (getPromo() == null || promo.getActive() == false ||getFood().getPrice()<promo.getMinPrice()){
+             
+            print  = "=====INVOICE====="+
+                   "\nID = "+getId()+
+                   "\nFood = "+getFood().getName()+
+                   "\nDate = "+date1+
+                   "\nCostumer = "+getCustomer().getName()+
+                   "\nTotal price = "+totalPrice+
+                   "\nStatus: "+ getInvoiceStatus()+
+                   "\nPayment Type = "+PAYMENT_TYPE+"\n";
+        }else{    
+             print  = "=====INVOICE====="+
+                   "\nID = "+getId()+
+                   "\nFood = "+getFood().getName()+
+                   "\nDate = "+date1+
+                   "\nCostumer = "+getCustomer().getName()+
+                   "\nPromo = "+promo.getCode()+
+                   "\nTotal price = "+totalPrice+
+                   "\nStatus = "+getInvoiceStatus()+
+                   "\nPayment Type = "+PAYMENT_TYPE;
+        }
+
+        return print;
     }
 }

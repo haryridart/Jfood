@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=CashInvoice
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ CashlessInvoice\ here.\r\n\r\n\ @author\ Hary\ Ridart\r\n\ @version\ 2020-03-12\r\n
 comment1.params=id\ food\ customer\ invoiceStatus
 comment1.target=CashInvoice(int,\ Food,\ Customer,\ InvoiceStatus)
 comment1.text=\r\n\ Merupakan\ constructor\ dari\ Class\ Food\ untuk\ membuat\ Food\r\n\ @param\ id\ merupakan\ id\ makanan(Food)\r\n\ @param\ name\ merupakan\ nama\ dari\ makanan.\r\n\ @param\ seller\ merupakan\ informasi\ Seller\ makanan(Food)\r\n\ @param\ price\ merupakan\ harga\ dari\ makanan(Food).\r\n\ @param\ category\ merupakan\ kategori\ makanan(Food).\r\n\ @return\ Constructor\ tidak\ mengembalikan\ nilai.\r\n

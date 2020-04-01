@@ -15,15 +15,20 @@ public class Jfood
        
         Location locationObj = new Location("Sukabumi","Jawa Barat", "Rumah Kita Semua" );
         Seller sellerObj = new Seller(1,"Hary","ridarth@gmail.com","6287716381565",locationObj);
+        Promo promoObj = new Promo(1,"123",5000,20000,true);
         Food foodObj = new Food(1,"Bakso",sellerObj,12000,FoodCategory.Beverages);
-        Customer customerObj2 = new Customer (1,"Hary", "ridarth@gmail.com", "Tangina123", 2020,03,19);
+        Food foodObj2 = new Food(2,"Babi Panggang",sellerObj,32000,FoodCategory.Beverages);
+        Calendar cal1 = new  GregorianCalendar(2020,3,19);
+        Customer customerObj2 = new Customer (1,"Hary", "ridarth@gmail.com", "123456",cal1);
         CashInvoice cashInvoiceObj = new CashInvoice(
-        1, foodObj, customerObj2,InvoiceStatus.Finished);
+        1, foodObj, customerObj2,InvoiceStatus.Finished, 1000);
         CashlessInvoice cashlessInvoiceObj = new CashlessInvoice(
-        1, foodObj, customerObj2,InvoiceStatus.Ongoing);
+        1, foodObj2, customerObj2,InvoiceStatus.Finished,promoObj);
         
-        CashInvoiceObj.toString();
-        CashlessInvoiceObj.toString();
+        cashInvoiceObj.setTotalPrice();
+        cashlessInvoiceObj.setTotalPrice();
+        System.out.println(cashInvoiceObj);
+        System.out.println(cashlessInvoiceObj);
         // Calendar joinDate = new GregorianCalendar(2020,01,20);
         // System.out.println("====Sebelum Diubah Email dan Password====");
         // Customer customerObj1 = new Customer (1,"Hary", "ridarth@gmail.com", "hehe",joinDate);

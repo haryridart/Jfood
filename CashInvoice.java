@@ -4,7 +4,8 @@
  * @author Hary Ridart
  * @version 2020-03-12
  */
-
+import java.util.Calendar; 
+import java.text.SimpleDateFormat;
 public class CashInvoice extends Invoice
 {
     // instance variables - replace the example below with your own
@@ -92,16 +93,26 @@ public class CashInvoice extends Invoice
     * @param tidak ada parameter yang digunakan
     * @return Method ini tidak mengembalikan nilai.
     */
-    @Override
+    
     public String toString()
     {
-        return "=========INVOICE========="+
-            "ID: " + getId() +
-            "Date: " + super.getFood().getName()+
-            "Customer: "+ super.getCustomer().getName()+
-            "Total Price: " + getTotalPrice()  +
-            "Status: " + getInvoiceStatus()+
-            "Payment: " +  getPaymentType();
+            SimpleDateFormat format1 = new SimpleDateFormat("dd MMMM yyyy");
+            String date1 = format1.format(getDate().getTime());
+            String print;
+            print  = "======INVOICE======"+
+                   "\nID = "+super.getId()+
+                   "\nFood = "+super.getFood().getName()+
+                   "\nDate = "+date1+
+                   "\nCustomer = "+super.getCustomer().getName()+
+                   "\nDelivery Fee = "+deliveryFee+
+                   "\nTotal Price = "+super.totalPrice+
+                   "\nStatus : " + super.getInvoiceStatus()+
+                   "\nPayment Type : "+ PAYMENT_TYPE;
+            //System.out.println(print);
+            return print;      
+                  
+           
+        
     }
 }
 

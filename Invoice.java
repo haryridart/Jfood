@@ -37,6 +37,7 @@ public abstract class Invoice
         this.food = food;
         this.customer = customer;
         this.invoiceStatus = invoiceStatus;
+        this.date = Calendar.getInstance();
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai Id Invoice

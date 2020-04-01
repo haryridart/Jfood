@@ -58,9 +58,9 @@ public class Customer
         this.name = name;
         this.email = email;
         this.password = password;
+        this.joinDate = Calendar.getInstance();
         setEmail(email);
         setPassword(password);
-        this.joinDate = Calendar.getInstance();
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai Id Customer
@@ -139,13 +139,11 @@ public class Customer
         Matcher matcher = pattern.matcher(email);
         if (matcher.find())
         {
-            System.out.println("Email : " + matcher.group());
             this.email = email;
         }
         else
         {
-            System.out.println("Email : NULL");
-            this.email = email;
+            this.email = "";
         }
     }
     /**
@@ -160,14 +158,12 @@ public class Customer
         Matcher matcher = pattern.matcher(password);
         if(matcher.find())
         {
-            System.out.println("Password: " + matcher.group());
             this.password = password;
             
         }
         else
         {
-            System.out.println("Password: NULL");
-            this.password = password;
+            this.password = "";
         }
         
     }
@@ -187,15 +183,34 @@ public class Customer
     /**
     * Method ini digunakan untuk mencetak.
     */
+    
     public String toString()
     {
-        
-        return "\nID: " + id +
-        "\nNama: " + name +
-        "\nEmail: " + email +
-        "\nPassword: " + password +
-        "\nJoin Date: " + joinDate;
-    } 
+        String print;
+        if(joinDate!=null)
+        {
+            
+            Date date = joinDate.getTime();             
+            SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
+            String date1 = format1.format(date);  
+            print  = "Customer:\n"+
+                   "ID = "+id+"\n"+
+                   "Nama = "+name+"\n"+
+                   "Email = "+email+"\n"+
+                   "Password = "+password+"\n"+
+                   "Join Date = "+date1+"\n";
+        }
+        else
+        {    
+            print = "Customer:\n"+
+                   "ID = "+id+"\n"+
+                   "Nama = "+name+"\n"+
+                   "Email = "+email+"\n"+
+                   "Password = "+password+"\n";
+        }
+        System.out.println(print);
+        return print;
+    }
     
 }
 
