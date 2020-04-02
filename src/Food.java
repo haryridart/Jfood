@@ -71,7 +71,7 @@ public class Food
     * @param Tidak ada parameter yang digunakan pada method ini.
     * @return Method ini mengembalikan nilai string dari category.
     */
-    public FoodCategory getCatergory()
+    public FoodCategory getCategory()
     {
         return category;
     }

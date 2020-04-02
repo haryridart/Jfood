@@ -1,51 +1,65 @@
+import java.util.ArrayList;
 
 /**
  * Write a description of class DatabaseCustomer here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Hary Ridart)
+ * @version (02-04-2020)
  */
 public class DatabaseCustomer
 {
     // Mendefinisikan instance variables 
-    private static String listCustomer[];
+    private static ArrayList<Customer> CUSTOMER_DATABASE= new ArrayList<Customer>();
+    private static int lastId=0;
 
-    /**
-    * Method ini digunakan untuk mengembalikan penambahan Makanan.
-    * @param food merupakan parameter makanan yang ditambahkan.
-    * @return Method ini mengembalikan nilai boolen.
-    */
-    public static boolean addCustomer(Customer customer)
-    {
-        return true;
-        
+
+    public static ArrayList<Customer> getCustomerDatabase(){
+        //return customer;
+        return CUSTOMER_DATABASE;
     }
-    /**
-    * Method ini digunakan untuk mengembalikan Menghapus Makanan.
-    * @param food merupakan parameter makanan yang ditambahkan.
-    * @return Method ini mengembalikan nilai boolen.
-    */
-    public static boolean removeCustomer(Customer customer)
+    public static int getLastId()
     {
-        return false;
+        return lastId;
     }
-    /**
-    * Method ini digunakan untuk mengembalikan Makanan pada DatabaseFood .
-    * @param Belum ada parameter yang digunakan pada method ini.
-    * @return Method ini belum mengembalikan nilai.
-    */
-    public static Customer getCustomer()
+    public static Customer getCustomerById(int id)
     {
+        boolean checking = false;
+        for(int i=0;i<CUSTOMER_DATABASE.size();i++){
+            if(CUSTOMER_DATABASE.get(i).getId() == id){
+                checking = true;
+                return CUSTOMER_DATABASE.get(i);
+
+            }
+        }
         return null;
     }
-    /**
-    * Method ini digunakan untuk mengembalikan List Makanan pada DatabaseFood.
-    * @param Belum ada parameter yang digunakan pada method ini.
-    * @return Method ini belum mengembalikan nilai.
-    */
-    public static String[] getListCustomer()
-    {
-        return listCustomer;
+
+    public static boolean addCustomer(Customer customer) {
+        boolean sameEmailBuff = false;
+        for (Customer buff: CUSTOMER_DATABASE) {
+            if (customer.getEmail() == buff.getEmail()) {
+                sameEmailBuff = true;
+            }
+        }
+
+        if (!sameEmailBuff) {
+            CUSTOMER_DATABASE.add(customer);
+            lastId = CUSTOMER_DATABASE.indexOf(customer);
+        }
+        return false;
     }
+    public static boolean removeCustomer(int id){
+        for(Customer customer : CUSTOMER_DATABASE)
+        {
+            if(customer.getId()==id)
+            {
+                CUSTOMER_DATABASE.remove(customer);
+                return true;
+            }
+        }
+        return false;
+
+    }
+
     
 }

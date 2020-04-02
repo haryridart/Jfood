@@ -5,48 +5,55 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class DatabaseSeller
-{
+import java.util.ArrayList;
+public class DatabaseSeller {
     // instance variables - replace the example below with your own
-    private static String listSeller[];
+    private static ArrayList<Seller> SELLER_DATABASE = new ArrayList<Seller>();
+    private static int lastId = 0;
 
+    public static ArrayList<Seller> getSellerDatabase() {
+        return SELLER_DATABASE;
+    }
 
     /**
      * An example of a method - replace this comment with your own
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return the sum of x and y
      */
-    public static boolean addSeller(Seller seller)
-    {
+    public static int getLastId() {
+        return lastId;
+    }
+
+    public static Seller getSellerById(int id) {
+        Seller value = null;
+        for (Seller seller : SELLER_DATABASE) {
+            if (seller.getId() == lastId) {
+                value = seller;
+            } else {
+                return value;
+            }
+        }
+
+        return value;
+    }
+
+    public static boolean addSeller(Seller seller) {
+        SELLER_DATABASE.add(seller);
+        lastId = seller.getId();
         return true;
-        
     }
+
     /**
-    * Method ini digunakan untuk mengembalikan Menghapus Makanan.
-    * @param seller merupakan parameter makanan yang ditambahkan.
-    * @return Method ini mengembalikan nilai boolen.
-    */
-    public static boolean removeSeller(Seller seller)
-    {
+     * Method ini digunakan untuk mengembalikan Menghapus Makanan.
+     */
+    public static boolean removeSeller(int id) {
+        for (Seller seller : SELLER_DATABASE) {
+            if (seller.getId() == id) {
+                SELLER_DATABASE.remove(seller);
+                return true;
+            }
+        }
         return false;
-    }
-    /**
-    * Method ini digunakan untuk mengembalikan Makanan pada Databaseseller .
-    * @param Belum ada parameter yang digunakan pada method ini.
-    * @return Method ini belum mengembalikan nilai.
-    */
-    public static Seller getSeller()
-    {
-        return null;
-    }
-    /**
-    * Method ini digunakan untuk mengembalikan List Makanan pada Databaseseller.
-    * @param Belum ada parameter yang digunakan pada method ini.
-    * @return Method ini belum mengembalikan nilai.
-    */
-    public static String[] getListSeller()
-    {
-        return listSeller;
+
     }
 }

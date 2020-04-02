@@ -4,44 +4,30 @@
  * @author Hary Ridart
  * @version 2020-03-12
  */
-import java.util.Calendar;
-import java.util.GregorianCalendar; 
-import java.util.regex.*;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-import java.text.SimpleDateFormat;  
-import java.util.Date; 
+import java.util.*;
+import java.text.SimpleDateFormat;
+
 public abstract class Invoice
 {
     // Mendefinisikan instance variables 
     private int id;
-    private Food food;
+    private ArrayList<Food> foods;
     private Calendar date;
     protected int totalPrice;
     private Customer customer;
     private InvoiceStatus invoiceStatus;
 
-    /**
-    * Merupakan constructor dari Class Invoice untuk membuat Invoice
-    * @param id merupakan id Invoice
-    * @param idFood merupakan id dari makanan (Food).
-    * @param date merupakan tanggal transaksi Invoice
-    * @param customer merupakan customer pada Invoice.
-    * @param invoiceStatus merupakan status Invoice pada Invoice.
-    * @return Constructor tidak mengembalikan nilai.
-    */
-    public Invoice(int id,Food food,Customer customer, 
-    InvoiceStatus invoiceStatus)
+
+    public Invoice(int id, ArrayList<Food> foods, Customer customer)
     {
         this.id = id;
-        this.food = food;
+        this.foods = foods;
         this.customer = customer;
-        this.invoiceStatus = invoiceStatus;
-        this.date = Calendar.getInstance();
+        this.invoiceStatus = InvoiceStatus.Ongoing;
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai Id Invoice
-    * @param Tidak ada parameter yang digunakan pada method ini.
+
     * @return Method ini mengembalikan nilai int dari id Invoice.
     */
     public int getId()
@@ -50,16 +36,15 @@ public abstract class Invoice
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai Id makanan Invoice
-    * @param Tidak ada parameter yang digunakan pada method ini.
     * @return Method ini mengembalikan nilai int dari id makanan pada Invoice.
     */
-    public Food getFood()
+    public ArrayList<Food> getFoods()
     {
-        return food;
+        return foods;
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai date pada Invoice
-    * @param Tidak ada parameter yang digunakan pada method ini.
+
     * @return Method ini mengembalikan nilai string dari date Invoice.
     */
     public Calendar getDate()
@@ -68,7 +53,7 @@ public abstract class Invoice
     }    
     /**
     * Method ini digunakan untuk mengembalikan nilai totalPrice Invoice
-    * @param Tidak ada parameter yang digunakan pada method ini.
+
     * @return Method ini mengembalikan nilai int dari totalPrice.
     */
     public int getTotalPrice()
@@ -77,7 +62,6 @@ public abstract class Invoice
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai customer pada Invoice.
-    * @param Tidak ada parameter yang digunakan pada method ini.
     * @return Method ini mengembalikan variable customer pada Invoice.
     */
     public Customer getCustomer()
@@ -86,13 +70,13 @@ public abstract class Invoice
     }
     /**
     * Abstract Method ini digunakan untuk mendefinisikan method getPaymentType untuk dapat digunakan pada class lain.
-    * @param Tidak ada parameter yang digunakan pada method ini.
+
     */
     public abstract PaymentType getPaymentType();
     /**
     * Method ini digunakan untuk mengembalikan nilai invoiceStatus pada Invoice.
-    * @param Tidak ada parameter yang digunakan pada method ini.
-    * @return Method ini mengembalikan variable invoiceStatus pada Invoice.
+
+    * @return Method ini mengembalikan variasetfoodble invoiceStatus pada Invoice.
     */
     public InvoiceStatus getInvoiceStatus()
     {
@@ -100,7 +84,7 @@ public abstract class Invoice
     }
     /**
     * Method ini digunakan untuk menetapkan nilai id Invoice.
-    * @param parameter id merupakan id dari Invoice.
+
     * @return Method ini tidak mengembalikan nilai.
     */
     public void setId(int id)
@@ -109,16 +93,16 @@ public abstract class Invoice
     }
     /**
     * Method ini digunakan untuk menetapkan nilai idFood Invoice.
-    * @param parameter idFood merupakan id dari Food pada Invoice.
+
     * @return Method ini tidak mengembalikan nilai.
     */
-    public void setFood(Food food)
+    public void setFoods(ArrayList<Food> foods)
     {
-        this.food = food;
+        this.foods = foods;
     }
     /**
     * Method ini digunakan untuk menetapkan nilai date pada Invoice.
-    * @param parameter date merupakan tanggal pada Invoice.
+
     * @return Method ini tidak mengembalikan nilai.
     */
     public void setDate(Calendar date)
@@ -131,14 +115,14 @@ public abstract class Invoice
     }
     /**
     * Method ini digunakan untuk menetapkan nilai totalPrice Invoice.
-    * @param parameter totalPrice merupakan total harga pada Invoice.
+
     * @return Method ini tidak mengembalikan nilai.
     */
     public abstract void setTotalPrice();
     
     /**
     * Method ini digunakan untuk menetapkan customer pada Invoice.
-    * @param parameter customer merupakan customer dari Invoice.
+
     * @return Method ini tidak mengembalikan nilai.
     */
     public void setCustomer(Customer customer)
