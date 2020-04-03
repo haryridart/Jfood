@@ -22,22 +22,20 @@ public class DatabaseFood
     {
         return lastId;
     }
-    public static Food getFoodById(int id)
-    {
-        Food value=null;
-        for(Food food : FOOD_DATABASE)
-        {
-            if(food.getId()==lastId)
-            {
-                value=food;
+    public  static  Food getFoodById(int id){
+
+        boolean checker = false;
+        for(int i=0;i<FOOD_DATABASE.size();i++){
+            if(FOOD_DATABASE.get(i).getId() == id){
+                checker = true;
+                return FOOD_DATABASE.get(i);
+
             }
-            else
-            {
-                return value;
-            }
+
         }
 
-        return value;
+        return null;
+
     }
     public  static  ArrayList<Food> getFoodByCategory(FoodCategory foodCategory){
 
@@ -53,35 +51,36 @@ public class DatabaseFood
         }
         return(temp);
     }
-    public static ArrayList<Food> getFoodByCategory(Food category){
-        ArrayList<Food> value=new ArrayList<>();
-        for(Food foodDB : FOOD_DATABASE)
-        {
-            if(foodDB.getCategory()==category.getCategory())
-            {
-                value.add(foodDB);
+    public  static  ArrayList<Food> getFoodBySeller(int sellerId){
+
+        boolean checker = false;
+        ArrayList<Food> temp  = new ArrayList<Food>();
+        for(int i=0;i<FOOD_DATABASE.size();i++){
+            if(FOOD_DATABASE.get(i).getSeller().getId() == sellerId){
+                temp.add(FOOD_DATABASE.get(i));
+                checker = true;
             }
+
         }
-        return value;
+
+        return null;
+
     }
     public static boolean addFood(Food food)
     {
         FOOD_DATABASE.add(food);
-        lastId = food.getId();
+        lastId = food.getId()+1;
         return true;
     }
-    public static boolean removeFood(int id)
-    {
-        for(Food foodDB : FOOD_DATABASE)
-        {
-            if(foodDB.getId()==id)
-            {
-                FOOD_DATABASE.remove(foodDB);
+    public static  boolean removeFood(int id){ //mengurangi makanan dan memberitahukan apakah operasi berhasil
+
+
+        boolean checker = false;
+        for(int i=0;i<FOOD_DATABASE.size();i++){
+            if(FOOD_DATABASE.get(i).getId() == id){
+                checker = true;
+                FOOD_DATABASE.remove(i);
                 return true;
-            }
-            else
-            {
-                return false;
             }
         }
         return false;

@@ -24,17 +24,15 @@ public class DatabaseSeller {
         return lastId;
     }
 
-    public static Seller getSellerById(int id) {
-        Seller value = null;
-        for (Seller seller : SELLER_DATABASE) {
-            if (seller.getId() == lastId) {
-                value = seller;
-            } else {
-                return value;
+    public static Seller getSellerById(int id){
+        boolean checker = false;
+        for(int i=0;i<SELLER_DATABASE.size();i++){
+            if(SELLER_DATABASE.get(i).getId() == id){
+                checker = true;
+                return SELLER_DATABASE.get(i);
             }
         }
-
-        return value;
+        return null;
     }
 
     public static boolean addSeller(Seller seller) {
@@ -46,14 +44,15 @@ public class DatabaseSeller {
     /**
      * Method ini digunakan untuk mengembalikan Menghapus Makanan.
      */
-    public static boolean removeSeller(int id) {
-        for (Seller seller : SELLER_DATABASE) {
-            if (seller.getId() == id) {
-                SELLER_DATABASE.remove(seller);
+    public  static boolean removeSeller(int id)
+    {   boolean checker = false;
+        for(int i=0;i<SELLER_DATABASE.size();i++){
+            if(SELLER_DATABASE.get(i).getId() == id){
+                checker = true;
+                SELLER_DATABASE.remove(i);
                 return true;
             }
         }
         return false;
-
     }
 }

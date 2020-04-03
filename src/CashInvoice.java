@@ -44,7 +44,7 @@ public class CashInvoice extends Invoice
     */
     public PaymentType getPaymentType()
     {
-         return PAYMENT_TYPE;
+         return null;
     }
     /**
     * Method ini digunakan untuk mengembalikan promo
@@ -103,7 +103,7 @@ public class CashInvoice extends Invoice
                    "\nDate = "+date1+
                    "\nCustomer = "+super.getCustomer().getName()+
                    "\nDelivery Fee = "+deliveryFee+
-                   "\nTotal Price = "+super.totalPrice+
+                   "\nTotal Price = "+getTotalPrice()+
                    "\nStatus : " + super.getInvoiceStatus()+
                    "\nPayment Type : "+ PAYMENT_TYPE;
             //System.out.println(print);

@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 public class CashlessInvoice extends Invoice
 {
     // instance variables - replace the example below with your own
-    private final static PaymentType PAYMENT_TYPE = PaymentType.Cashless;
+    private static PaymentType PAYMENT_TYPE = PaymentType.Cashless;
     private Promo promo;
 
     /**
@@ -23,6 +23,7 @@ public class CashlessInvoice extends Invoice
     {
         // initialise instance variables
         super(id,foods,customer);
+        setTotalPrice();
     }
     /**
     * Merupakan method overload dari method ClashlessInvoice 
@@ -33,6 +34,7 @@ public class CashlessInvoice extends Invoice
         // put your code here
         super(id,food,customer);
         this.promo = promo;
+        setTotalPrice();
         
     }
     /**
@@ -41,7 +43,7 @@ public class CashlessInvoice extends Invoice
     */
     public PaymentType getPaymentType()
     {
-         return PAYMENT_TYPE;
+         return null;
     }
     /**
     * Method ini digunakan untuk mengembalikan promo
@@ -100,12 +102,13 @@ public class CashlessInvoice extends Invoice
                    "\nID = "+getId()+
                    "\nFood = "+ foodIn+
                    "\nDate = "+date1+
-                   "\nCostumer = "+getCustomer().getName()+
-                   "\nTotal price = "+totalPrice+
+                   "\nCostumer = "+getCustomer().getName();
+                    if(promo != null){
+                    print = print+"\nPromo :" + promo.getCode();
+                    }
+                    print = print + "\nTotal price = "+totalPrice+
                    "\nStatus: "+ getInvoiceStatus()+
                    "\nPayment Type = "+PAYMENT_TYPE+"\n";
-
-
         return print;
     }
 }

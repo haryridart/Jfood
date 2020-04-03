@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Write a description of class DatabaseCustomer here.
@@ -8,11 +9,13 @@ import java.util.ArrayList;
  */
 public class DatabaseCustomer
 {
-    // Mendefinisikan instance variables 
+    // Mendefinisikan instance variables
     private static ArrayList<Customer> CUSTOMER_DATABASE= new ArrayList<Customer>();
     private static int lastId=0;
 
+    public DatabaseCustomer(){
 
+    }
     public static ArrayList<Customer> getCustomerDatabase(){
         //return customer;
         return CUSTOMER_DATABASE;
@@ -34,19 +37,12 @@ public class DatabaseCustomer
         return null;
     }
 
-    public static boolean addCustomer(Customer customer) {
-        boolean sameEmailBuff = false;
-        for (Customer buff: CUSTOMER_DATABASE) {
-            if (customer.getEmail() == buff.getEmail()) {
-                sameEmailBuff = true;
-            }
-        }
-
-        if (!sameEmailBuff) {
-            CUSTOMER_DATABASE.add(customer);
-            lastId = CUSTOMER_DATABASE.indexOf(customer);
-        }
-        return false;
+    public static boolean addCustomer(Customer customer)
+    {
+        // put your code here
+        CUSTOMER_DATABASE.add(customer);
+        lastId = customer.getId()+1;
+        return true;
     }
     public static boolean removeCustomer(int id){
         for(Customer customer : CUSTOMER_DATABASE)
@@ -61,5 +57,5 @@ public class DatabaseCustomer
 
     }
 
-    
+
 }

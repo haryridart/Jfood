@@ -3,8 +3,8 @@ import java.util.ArrayList;
 /**
  * Write a description of class DatabasePromo here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Hary Ridart)
+ * @version (02-04-2020)
  */
 public class DatabasePromo {
     // instance variables - replace the example below with your own
@@ -19,22 +19,19 @@ public class DatabasePromo {
     {
         return lastId;
     }
-    public static Promo getPromoById(int id)
-    {
-        Promo value=null;
-        for(Promo promo : PROMO_DATABASE)
-        {
-            if(promo.getId()==lastId)
-            {
-                value=promo;
+    public static  Promo getPromoById(int id){
+        boolean checker = false;
+        for(int i=0;i<PROMO_DATABASE.size();i++){
+            if(PROMO_DATABASE.get(i).getId() == id){
+                checker = true;
+                return PROMO_DATABASE.get(i);
+
             }
-            else
-            {
-                return value;
-            }
+
         }
 
-        return value;
+        return null;
+
     }
     public static Promo getPromoByCode(String code) {
         for (Promo promo: PROMO_DATABASE) {
@@ -44,20 +41,11 @@ public class DatabasePromo {
         }
         return null;
     }
-    public static boolean addPromo(Promo promo) {
+    public static  boolean addPromo(Promo promo){
 
-        boolean samePromoCode = false;
-        for (Promo buff: PROMO_DATABASE) {
-            if (promo.getCode() == buff.getCode()) {
-                samePromoCode = true;
-            }
-        }
-
-        if (!samePromoCode) {
-            PROMO_DATABASE.add(promo);
-            lastId = PROMO_DATABASE.indexOf(promo);
-        }
-        return false;
+        PROMO_DATABASE.add(promo);
+        lastId = promo.getId();
+        return true;
     }
     public static boolean activatePromo(int id) {
         Promo promo = PROMO_DATABASE.get(id);

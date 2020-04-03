@@ -22,6 +22,7 @@ public abstract class Invoice
     {
         this.id = id;
         this.foods = foods;
+        this.date=date;
         this.customer = customer;
         this.invoiceStatus = InvoiceStatus.Ongoing;
     }
@@ -56,9 +57,9 @@ public abstract class Invoice
 
     * @return Method ini mengembalikan nilai int dari totalPrice.
     */
-    public int getTotalPrice()
-    {
+    public int getTotalPrice(){ //mengembalikan total harga
         return totalPrice;
+
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai customer pada Invoice.
@@ -129,9 +130,8 @@ public abstract class Invoice
     {
         this.customer = customer;
     }
-    public void setInvoiceStatus(InvoiceStatus invoiceStatus)
-    {
-        this.invoiceStatus = invoiceStatus;
+    public void setInvoiceStatus(){
+
     }
     /**
     * Method Abstract ini digunakan untuk mencetak dapat digunakan pada class lain.

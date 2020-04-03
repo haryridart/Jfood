@@ -4,6 +4,7 @@
  * @author Hary Ridart
  * @version 2020-02-27
  */
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar; 
 import java.util.regex.*;
@@ -33,8 +34,6 @@ public class Customer
     {
         this.id = id;
         this.name = name;
-        this.email = email;
-        this.password = password;
         this.joinDate  = joinDate;
         setEmail(email);
         setPassword(password);
@@ -44,9 +43,7 @@ public class Customer
     {
         this.id = id;
         this.name = name;
-        this.email = email;
-        this.password = password;
-        this.joinDate = new GregorianCalendar(year,month,dayOfMonth);
+        setJoinDate (year, month, dayOfMonth);
         setEmail(email);
         setPassword(password);
         
@@ -56,9 +53,8 @@ public class Customer
     {
         this.id = id;
         this.name = name;
-        this.email = email;
-        this.password = password;
-        this.joinDate = Calendar.getInstance();
+        LocalDateTime now = LocalDateTime.now();
+        setJoinDate(now.getYear(),now.getMonthValue(),now.getDayOfMonth());
         setEmail(email);
         setPassword(password);
     }
@@ -193,8 +189,7 @@ public class Customer
             Date date = joinDate.getTime();             
             SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
             String date1 = format1.format(date);  
-            print  = "Customer:\n"+
-                   "ID = "+id+"\n"+
+            print ="ID = "+id+"\n"+
                    "Nama = "+name+"\n"+
                    "Email = "+email+"\n"+
                    "Password = "+password+"\n"+
@@ -202,13 +197,11 @@ public class Customer
         }
         else
         {    
-            print = "Customer:\n"+
-                   "ID = "+id+"\n"+
+            print ="ID = "+id+"\n"+
                    "Nama = "+name+"\n"+
                    "Email = "+email+"\n"+
                    "Password = "+password+"\n";
         }
-        System.out.println(print);
         return print;
     }
     
