@@ -45,16 +45,20 @@ public class DatabaseInvoice
 
     }
 
-    public static boolean changeInvoiceStatus(int id)
+    public static  boolean changeInvoiceStatus(int id, InvoiceStatus invoiceStatus)
     {
-        boolean checker = false;
-        ArrayList<Invoice> temp  = new ArrayList<Invoice>();
-        for(int i=0;i<INVOICE_DATABASE.size();i++){
-            if((INVOICE_DATABASE.get(i).getId() == id) && (temp.getInvoiceStatus() == InvoiceStatus.Ongoing)){
-
-                checker = true;
+        for(Invoice temp : INVOICE_DATABASE)
+        {
+            if(temp.getId() == id)
+            {
+                if(temp.getInvoiceStatus() == InvoiceStatus.Ongoing)
+                {
+                    temp.setInvoiceStatus(InvoiceStatus.Finished);
+                    return true;
+                }
             }
         }
+        return false;
     }
     public  static boolean removeInvoice(int id)
     {   boolean checker = false;
