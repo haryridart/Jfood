@@ -92,6 +92,11 @@ public abstract class Invoice
     {
         this.id = id;
     }
+
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus)
+    {
+        this.invoiceStatus= invoiceStatus;
+    }
     /**
     * Method ini digunakan untuk menetapkan nilai idFood Invoice.
 

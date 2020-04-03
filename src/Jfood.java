@@ -29,6 +29,8 @@ public class Jfood {
 
             System.out.println(DatabaseFood.getFoodByCategory(FoodCategory.Beverages).get(i).getName());
         }
+
+        //DatabasePromo.addPromo((new Promo(DatabasePromo.getLastId(),DatabasePromo.getPromoByCode(0),)))
     }
 }
 
