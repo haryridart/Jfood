@@ -41,27 +41,42 @@ public class DatabasePromo {
         }
         return null;
     }
-    public static  boolean addPromo(Promo promo){
+    public static boolean addPromo(Promo promo) {
 
-        PROMO_DATABASE.add(promo);
-        lastId = promo.getId();
+        boolean samePromoCode = false;
+        for (Promo buff: PROMO_DATABASE) {
+            if (promo.getCode().equals(buff.getCode())) {
+                samePromoCode = true;
+            }
+        }
+
+        if (!samePromoCode) {
+            PROMO_DATABASE.add(promo);
+            lastId = PROMO_DATABASE.indexOf(promo);
+        }
+        return false;
+    }
+    public static boolean activatePromo(int id)
+        {
+            for(Promo promo : PROMO_DATABASE)
+            {
+                if (promo.getId() == id)
+                {
+                    promo.setActive(true);
+                }
+            }
+            return true;
+        }
+    public static boolean deactivatePromo(int id)
+    {
+        for (Promo promo : PROMO_DATABASE)
+        {
+            if (promo.getId() == id)
+            {
+                promo.setActive(false);
+            }
+        }
         return true;
-    }
-    public static boolean activatePromo(int id) {
-        Promo promo = PROMO_DATABASE.get(id);
-        if (promo != null) {
-            promo.setActive(true);
-            return true;
-        }
-        return false;
-    }
-    public static boolean deactivatePromo(int id) {
-        Promo promo = PROMO_DATABASE.get(id);
-        if (promo != null) {
-            promo.setActive(false);
-            return true;
-        }
-        return false;
     }
     public boolean removePromo (int id) {
         Promo promo = PROMO_DATABASE.get(id);

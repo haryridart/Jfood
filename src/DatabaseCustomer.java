@@ -24,25 +24,29 @@ public class DatabaseCustomer
     {
         return lastId;
     }
-    public static Customer getCustomerById(int id)
-    {
-        boolean checking = false;
-        for(int i=0;i<CUSTOMER_DATABASE.size();i++){
-            if(CUSTOMER_DATABASE.get(i).getId() == id){
-                checking = true;
-                return CUSTOMER_DATABASE.get(i);
-
+    public static Customer getCustomerById(int id){
+        for (Customer customer : CUSTOMER_DATABASE){
+            if (customer.getId() == id ){
+                return customer;
             }
         }
         return null;
     }
 
-    public static boolean addCustomer(Customer customer)
-    {
-        // put your code here
-        CUSTOMER_DATABASE.add(customer);
-        lastId = customer.getId()+1;
-        return true;
+    public static boolean addCustomer(Customer customer) {
+        boolean sameEmailBuff = false;
+        for (Customer buff: CUSTOMER_DATABASE) {
+            if (customer.getEmail().equals(buff.getEmail())) {
+                sameEmailBuff = true;
+                break;
+            }
+        }
+
+        if (!sameEmailBuff) {
+            CUSTOMER_DATABASE.add(customer);
+            lastId = customer.getId();
+        }
+        return false;
     }
     public static boolean removeCustomer(int id){
         for(Customer customer : CUSTOMER_DATABASE)

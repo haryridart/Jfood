@@ -87,28 +87,25 @@ public class CashInvoice extends Invoice
 
     * @return Method ini tidak mengembalikan nilai.
     */
-    
-    public String toString()
-    {
-            SimpleDateFormat format1 = new SimpleDateFormat("dd MMMM yyyy");
-            String date1 = format1.format(getDate().getTime());
-            String print;
-            String foodIn= "";
-            for(int i=0;i<getFoods().size();i++){
-            foodIn = foodIn+ getFoods().get(i).getName() + " ";
-        }
-            print  = "======INVOICE======"+
-                   "\nID = "+super.getId()+
-                   "\nFood = " +foodIn +
-                   "\nDate = "+date1+
-                   "\nCustomer = "+super.getCustomer().getName()+
-                   "\nDelivery Fee = "+deliveryFee+
-                   "\nTotal Price = "+getTotalPrice()+
-                   "\nStatus : " + super.getInvoiceStatus()+
-                   "\nPayment Type : "+ PAYMENT_TYPE;
-            //System.out.println(print);
-            return print;      
 
+    public String toString(){
+        String foodName= "";
+        for(int i=0;i<getFoods().size();i++){
+            foodName = foodName+ getFoods().get(i).getName() + " ";
+        }
+        String a = "======INVOICE======\n" +
+                "Food :" + foodName;
+        if(super.getDate() != null){
+            a = a+ "\nDate :" + super.getDate().get(Calendar.DAY_OF_MONTH) + "-" + super.getDate().get(Calendar.MONTH) + "-"+ super.getDate().get(Calendar.YEAR) ;
+        }
+        a= a+"\nCustomer :" + super.getCustomer().getName();
+        if(deliveryFee != 0){
+            a = a+"\nDelivery Fee :"+ deliveryFee;
+        }
+        a = a+ "\nTotal price :" + getTotalPrice()+
+                "\nStatus :" + super.getInvoiceStatus() +
+                "\nPayment Type :" + PAYMENT_TYPE;
+        return a;
     }
 }
 

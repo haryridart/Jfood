@@ -14,10 +14,19 @@ public class DatabaseInvoice
 
 
     public static boolean addInvoice(Invoice invoice)  {
-
-        INVOICE_DATABASE.add(invoice);
-        lastId = invoice.getId();
-        return true;
+        boolean sameStatusBuff = false;
+        for (Invoice buff: INVOICE_DATABASE) {
+            if (invoice.getInvoiceStatus().equals(InvoiceStatus.Ongoing)) {
+                sameStatusBuff = true;
+                break;
+            }
+        }
+        if (!sameStatusBuff) {
+            INVOICE_DATABASE.add(invoice);
+            lastId = invoice.getId();
+            return true;
+        }
+        return false;
     }
     public static Invoice getInvoiceById(int id){
         Invoice value=null;
@@ -41,7 +50,10 @@ public class DatabaseInvoice
                 checker = true;
             }
         }
-        return null;
+        if (checker) {
+            return temp;
+        }
+        return temp;
 
     }
 

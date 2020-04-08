@@ -87,28 +87,28 @@ public class CashlessInvoice extends Invoice
     * Method ini digunakan untuk mencetak data CashlessInvoice
 
     */
-    
+
     public String toString()
-   
     {
-        SimpleDateFormat format1 = new SimpleDateFormat("dd MMMM yyyy");
-        String date1 = format1.format(getDate().getTime());
-        String print;
-        String foodIn= "";
+        String foodName= "";
         for(int i=0;i<getFoods().size();i++){
-            foodIn = foodIn+ getFoods().get(i).getName() + " ";
+            foodName = foodName+ getFoods().get(i).getName() + " ";
         }
-            print  = "=====INVOICE====="+
-                   "\nID = "+getId()+
-                   "\nFood = "+ foodIn+
-                   "\nDate = "+date1+
-                   "\nCostumer = "+getCustomer().getName();
-                    if(promo != null){
-                    print = print+"\nPromo :" + promo.getCode();
-                    }
-                    print = print + "\nTotal price = "+totalPrice+
-                   "\nStatus: "+ getInvoiceStatus()+
-                   "\nPayment Type = "+PAYMENT_TYPE+"\n";
-        return print;
+        String a = "======INVOICE======\n" +
+                "Food :" + foodName;
+        if(super.getDate() != null){
+            a = a+ "\nDate :" + super.getDate().get(Calendar.DAY_OF_MONTH) + "-" + super.getDate().get(Calendar.MONTH) + "-"+ super.getDate().get(Calendar.YEAR) ;
+
+        }
+        a = a+
+                "\nCustomer :" + super.getCustomer().getName();
+        if(promo != null){
+            a = a+"\nPromo :" + promo.getCode();
+        }
+        a = a+ "\nTotal price :" + getTotalPrice()+
+                "\nStatus :" + super.getInvoiceStatus() +
+                "\nPayment Type :" + PAYMENT_TYPE;
+
+        return a;
     }
 }
