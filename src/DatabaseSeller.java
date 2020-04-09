@@ -24,7 +24,8 @@ public class DatabaseSeller {
         return lastId;
     }
 
-    public static Seller getSellerById(int id){
+    public static Seller getSellerById(int id) throws SellerNotFoundException
+    {
         boolean checker = false;
         for(int i=0;i<SELLER_DATABASE.size();i++){
             if(SELLER_DATABASE.get(i).getId() == id){
@@ -32,7 +33,7 @@ public class DatabaseSeller {
                 return SELLER_DATABASE.get(i);
             }
         }
-        return null;
+        throw new SellerNotFoundException(id);
     }
 
     public static boolean addSeller(Seller seller) {
@@ -44,7 +45,7 @@ public class DatabaseSeller {
     /**
      * Method ini digunakan untuk mengembalikan Menghapus Makanan.
      */
-    public  static boolean removeSeller(int id)
+    public  static boolean removeSeller(int id) throws SellerNotFoundException
     {   boolean checker = false;
         for(int i=0;i<SELLER_DATABASE.size();i++){
             if(SELLER_DATABASE.get(i).getId() == id){
@@ -53,6 +54,6 @@ public class DatabaseSeller {
                 return true;
             }
         }
-        return false;
+        throw new SellerNotFoundException(id);
     }
 }

@@ -19,7 +19,9 @@ public class DatabasePromo {
     {
         return lastId;
     }
-    public static  Promo getPromoById(int id){
+
+    public static  Promo getPromoById(int id) throws PromoNotFoundException
+    {
         boolean checker = false;
         for(int i=0;i<PROMO_DATABASE.size();i++){
             if(PROMO_DATABASE.get(i).getId() == id){
@@ -27,11 +29,8 @@ public class DatabasePromo {
                 return PROMO_DATABASE.get(i);
 
             }
-
         }
-
-        return null;
-
+        throw new PromoNotFoundException(id);
     }
     public static Promo getPromoByCode(String code) {
         for (Promo promo: PROMO_DATABASE) {
@@ -41,7 +40,8 @@ public class DatabasePromo {
         }
         return null;
     }
-    public static boolean addPromo(Promo promo) {
+    public static boolean addPromo(Promo promo) throws PromoCodeAlreadyExistsException
+    {
 
         boolean samePromoCode = false;
         for (Promo buff: PROMO_DATABASE) {
@@ -54,7 +54,7 @@ public class DatabasePromo {
             PROMO_DATABASE.add(promo);
             lastId = PROMO_DATABASE.indexOf(promo);
         }
-        return false;
+        throw new PromoCodeAlreadyExistsException(promo);
     }
     public static boolean activatePromo(int id)
         {
@@ -78,13 +78,17 @@ public class DatabasePromo {
         }
         return true;
     }
-    public boolean removePromo (int id) {
-        Promo promo = PROMO_DATABASE.get(id);
-        if (promo != null) {
-            PROMO_DATABASE.remove(promo);
-            return true;
+    public static  boolean removePromo(int id) throws PromoNotFoundException
+    {
+        boolean checker = false;
+        for(int i=0;i<PROMO_DATABASE.size();i++){
+            if(PROMO_DATABASE.get(i).getId() == id){
+                checker = true;
+                PROMO_DATABASE.remove(i);
+                return true;
+            }
         }
-        return false;
+        throw new PromoNotFoundException(id);
     }
 }
         
