@@ -12,4 +12,3 @@ public class PriceCalculator implements Runnable
         System.out.println("Finish calculating Invoice ID: " + input.getId());
     }
 }
-

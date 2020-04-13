@@ -42,14 +42,12 @@ public class DatabasePromo {
     }
     public static boolean addPromo(Promo promo) throws PromoCodeAlreadyExistsException
     {
-
         boolean samePromoCode = false;
         for (Promo buff: PROMO_DATABASE) {
             if (promo.getCode().equals(buff.getCode())) {
                 samePromoCode = true;
             }
         }
-
         if (!samePromoCode) {
             PROMO_DATABASE.add(promo);
             lastId = PROMO_DATABASE.indexOf(promo);

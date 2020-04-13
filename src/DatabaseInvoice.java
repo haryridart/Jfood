@@ -13,15 +13,21 @@ public class DatabaseInvoice
     }
 
 
-    public static boolean addInvoice(Invoice invoice)  {
-        boolean sameStatusBuff = false;
-        for (Invoice buff: INVOICE_DATABASE) {
-            if (invoice.getInvoiceStatus().equals(InvoiceStatus.Ongoing)) {
-                sameStatusBuff = true;
-                break;
+    public static boolean addInvoice(Invoice invoice)
+    {
+        boolean checker = false;
+        for(int i=0;i<INVOICE_DATABASE.size();i++)
+        {
+            if(INVOICE_DATABASE.get(i).getCustomer().getId() == invoice.getCustomer().getId() )
+            {
+                if (INVOICE_DATABASE.get(i).getInvoiceStatus() == InvoiceStatus.Ongoing )
+                {
+                    checker = true;
+                    break;
+                }
             }
         }
-        if (!sameStatusBuff) {
+        if (checker == false){
             INVOICE_DATABASE.add(invoice);
             lastId = invoice.getId();
             return true;
@@ -57,17 +63,11 @@ public class DatabaseInvoice
 
     }
 
-    public static  boolean changeInvoiceStatus(int id, InvoiceStatus invoiceStatus)
-    {
-        for(Invoice temp : INVOICE_DATABASE)
-        {
-            if(temp.getId() == id)
-            {
-                if(temp.getInvoiceStatus() == InvoiceStatus.Ongoing)
-                {
-                    temp.setInvoiceStatus(InvoiceStatus.Finished);
-                    return true;
-                }
+    public static boolean changeInvoiceStatus(int id, InvoiceStatus invoiceStatus) {
+        for (Invoice invoice: INVOICE_DATABASE) {
+            if (invoice.getId() == id && invoice.getInvoiceStatus().equals(InvoiceStatus.Ongoing)){
+                invoice.setInvoiceStatus(invoiceStatus);
+                return true;
             }
         }
         return false;
@@ -83,7 +83,5 @@ public class DatabaseInvoice
         }
         return false;
     }
-
-
 }
 
