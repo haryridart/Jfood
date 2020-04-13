@@ -134,11 +134,19 @@ public class Jfood {
         {
             System.out.println(e.getExMessage());
         }
+        catch (OngoingInvoiceAlreadyExistsException e)
+        {
+            System.out.println(e.getExMessage());
+        }
         try
         {
             DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId() + 1, food2, DatabaseCustomer.getCustomerById(2)));
         }
         catch (CustomerNotFoundException e)
+        {
+            System.out.println(e.getExMessage());
+        }
+        catch (OngoingInvoiceAlreadyExistsException e)
         {
             System.out.println(e.getExMessage());
         }
@@ -150,9 +158,36 @@ public class Jfood {
         {
             System.out.println(e.getExMessage());
         }
+        catch (OngoingInvoiceAlreadyExistsException e)
+        {
+            System.out.println(e.getExMessage());
+        }
 
         for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase()) {
             new Thread(new PriceCalculator(invoice)).start();
         }
+
+        //POST TEST
+        try
+        {
+            DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId() + 1, food2, DatabaseCustomer.getCustomerById(3)));
+        }
+        catch (CustomerNotFoundException e)
+        {
+            System.out.println(e.getExMessage());
+        }
+        catch (OngoingInvoiceAlreadyExistsException e)
+        {
+            System.out.println(e.getExMessage());
+        }
+        try
+        {
+            DatabaseInvoice.removeInvoice(6);
+        }
+        catch (InvoiceNotFoundException e)
+        {
+            System.out.println(e.getExMessage());
+        }
+
     }
 }
