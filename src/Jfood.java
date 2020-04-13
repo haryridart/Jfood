@@ -73,6 +73,14 @@ public class Jfood {
         }
         try
         {
+            DatabaseFood.addFood(new Food(DatabaseFood.getLastId()+1,"ES Teler",DatabaseSeller.getSellerById(1),39000,FoodCategory.Coffe));
+        }
+        catch (SellerNotFoundException e)
+        {
+            System.out.println(e.getExMessage());
+        }
+        try
+        {
             DatabaseFood.addFood(new Food( DatabaseFood.getLastId()+1,"Bakso", DatabaseSeller.getSellerById(1),13000,FoodCategory.Beverages));
         }
         catch (SellerNotFoundException e)
@@ -126,7 +134,8 @@ public class Jfood {
 
         ArrayList<Food> food1 = DatabaseFood.getFoodByCategory(FoodCategory.Beverages);
         ArrayList<Food> food2 = DatabaseFood.getFoodByCategory(FoodCategory.Noodles);
-        try
+        ArrayList<Food> food3 = DatabaseFood.getFoodByCategory(FoodCategory.Coffe);
+        /*try
         {
             DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId()+1, food1, DatabaseCustomer.getCustomerById(1)));
         }
@@ -165,7 +174,7 @@ public class Jfood {
 
         for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase()) {
             new Thread(new PriceCalculator(invoice)).start();
-        }
+        }*/
 
         //POST TEST
         try
@@ -182,11 +191,28 @@ public class Jfood {
         }
         try
         {
+            DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId() + 1, food3, DatabaseCustomer.getCustomerById(3)));
+        }
+        catch (CustomerNotFoundException e)
+        {
+            System.out.println(e.getExMessage());
+        }
+        catch (OngoingInvoiceAlreadyExistsException e)
+        {
+            System.out.println(e.getExMessage());
+        }
+        try
+        {
             DatabaseInvoice.removeInvoice(6);
         }
         catch (InvoiceNotFoundException e)
         {
             System.out.println(e.getExMessage());
+        }
+
+        System.out.println("\nDATABASE INVOICE YANG MASUK");
+        for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase()){
+            System.out.println(invoice);
         }
 
     }
