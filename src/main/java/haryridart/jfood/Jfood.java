@@ -14,8 +14,47 @@ import java.util.GregorianCalendar;
 public class Jfood
 {
     public static void main(String[] args) {
-        SpringApplication.run(Jfood.class, args);
+
         Location locationObj = new Location("Sukabumi", "Jawa Barat", "Rumah Kita Semua");
+        DatabaseSeller.addSeller((new Seller(DatabaseSeller.getLastId()+1 , "Hary", "hary@gmail.com", "085285237993", locationObj)));
+        DatabaseSeller.addSeller((new Seller(DatabaseSeller.getLastId()+1 , "Ridart", "ridart@gmail.com", "085285237993", locationObj)));
+        DatabaseSeller.addSeller((new Seller(DatabaseSeller.getLastId()+1 , "Frenze", "frenzel@gmail.com", "085285237993", locationObj)));
+        try
+        {
+            DatabaseFood.addFood(new Food(DatabaseFood.getLastId()+1,"Babi Panggang",DatabaseSeller.getSellerById(1),39000,FoodCategory.Noodles));
+        }
+        catch (SellerNotFoundException e)
+        {
+            System.out.println(e.getExMessage());
+        }
+        try
+        {
+            DatabaseFood.addFood(new Food(DatabaseFood.getLastId()+1,"ES Teler",DatabaseSeller.getSellerById(1),39000,FoodCategory.Coffe));
+        }
+        catch (SellerNotFoundException e)
+        {
+            System.out.println(e.getExMessage());
+        }
+        try
+        {
+            DatabaseFood.addFood(new Food( DatabaseFood.getLastId()+1,"Bakso", DatabaseSeller.getSellerById(1),13000,FoodCategory.Beverages));
+        }
+        catch (SellerNotFoundException e)
+        {
+            System.out.println(e.getExMessage());
+        }
+        try
+        {
+            DatabaseFood.addFood(new Food( DatabaseFood.getLastId()+1,"Mie Ayam", DatabaseSeller.getSellerById(1),16000,FoodCategory.Beverages));
+        }
+        catch (SellerNotFoundException e)
+        {
+            System.out.println(e.getExMessage());
+        }
+        SpringApplication.run(Jfood.class, args);
+
+
+        /*Location locationObj = new Location("Sukabumi", "Jawa Barat", "Rumah Kita Semua");
         DatabaseSeller.addSeller((new Seller(DatabaseSeller.getLastId()+1 , "Narumi", "narumi@gmail.com", "085285237993", locationObj)));
         try
         {
@@ -137,7 +176,7 @@ public class Jfood
         ArrayList<Food> food1 = DatabaseFood.getFoodByCategory(FoodCategory.Beverages);
         ArrayList<Food> food2 = DatabaseFood.getFoodByCategory(FoodCategory.Noodles);
         ArrayList<Food> food3 = DatabaseFood.getFoodByCategory(FoodCategory.Coffe);
-        /*try
+        *//*try
         {
             DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId()+1, food1, DatabaseCustomer.getCustomerById(1)));
         }
@@ -176,7 +215,7 @@ public class Jfood
 
         for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase()) {
             new Thread(new PriceCalculator(invoice)).start();
-        }*/
+        }*//*
 
         //POST TEST
         try
@@ -215,7 +254,7 @@ public class Jfood
         System.out.println("\nDATABASE INVOICE YANG MASUK");
         for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase()){
             System.out.println(invoice);
-        }
+        }*/
 
     }
 }

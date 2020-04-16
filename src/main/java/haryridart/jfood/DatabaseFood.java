@@ -47,7 +47,7 @@ public class DatabaseFood
         return(temp);
     }
 
-    public  static  ArrayList<Food> getFoodBySeller(int sellerId)
+    public  static  ArrayList<Food> getFoodBySeller(int sellerId) throws SellerNotFoundException
     {
         boolean checker = false;
         ArrayList<Food> temp  = new ArrayList<Food>();
@@ -57,7 +57,7 @@ public class DatabaseFood
                 checker = true;
             }
         }
-        return null;
+        throw new SellerNotFoundException(sellerId);
     }
 
     public static boolean addFood(Food food)
@@ -78,4 +78,6 @@ public class DatabaseFood
         }
         throw new FoodNotFoundException(id);
     }
+
+
 }

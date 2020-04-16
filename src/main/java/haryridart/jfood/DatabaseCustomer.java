@@ -62,8 +62,17 @@ public class DatabaseCustomer
             }
         }
         throw new CustomerNotFoundException(id);
-
     }
+    public static Customer getCustomerLogin(String email, String password){
+        for (Customer customerPtr : CUSTOMER_DATABASE){
+            if (customerPtr.getEmail().equals(email) && customerPtr.getPassword().equals(password))
+            {
+                return customerPtr;
+            }
+        }
+        return null;
+    }
+
 
 
 }

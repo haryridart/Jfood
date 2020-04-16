@@ -47,11 +47,14 @@ public class DatabasePromo {
         for (Promo buff: PROMO_DATABASE) {
             if (promo.getCode().equals(buff.getCode())) {
                 samePromoCode = true;
+                break;
             }
         }
+
         if (!samePromoCode) {
             PROMO_DATABASE.add(promo);
-            lastId = PROMO_DATABASE.indexOf(promo);
+            lastId = promo.getId();
+            return true;
         }
         throw new PromoCodeAlreadyExistsException(promo);
     }
