@@ -47,17 +47,14 @@ public class DatabaseFood
         return(temp);
     }
 
-    public  static  ArrayList<Food> getFoodBySeller(int sellerId) throws SellerNotFoundException
-    {
-        boolean checker = false;
-        ArrayList<Food> temp  = new ArrayList<Food>();
-        for(int i=0;i<FOOD_DATABASE.size();i++){
-            if(FOOD_DATABASE.get(i).getSeller().getId() == sellerId){
-                temp.add(FOOD_DATABASE.get(i));
-                checker = true;
+    public static ArrayList<Food> getFoodBySeller(int sellerId) {
+        ArrayList<Food> ret = new ArrayList<>();
+        for (Food food: FOOD_DATABASE) {
+            if (food.getSeller().getId() == sellerId) {
+                ret.add(food);
             }
         }
-        throw new SellerNotFoundException(sellerId);
+        return ret;
     }
 
     public static boolean addFood(Food food)

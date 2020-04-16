@@ -4,16 +4,16 @@ import haryridart.jfood.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-
+@RequestMapping("/food")
 @RestController
 public class FoodController
 {
-    @RequestMapping(value = "/food", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public ArrayList<Food> getAllFood() {
         return DatabaseFood.getFoodDatabase();
     }
 
-    @RequestMapping(value = "/food/{id_food}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id_food}", method = RequestMethod.GET)
     public Food getFoodById(@PathVariable int id_food) {
         Food food = null;
         try
@@ -28,29 +28,19 @@ public class FoodController
         return food;
     }
 
-    @RequestMapping(value = "/food/seller/{sellerId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/seller/{sellerId}", method = RequestMethod.GET)
     public ArrayList<Food> getFoodBySeller(@PathVariable int sellerId) {
-        ArrayList<Food> food = null;
-        try
-        {
-            food = DatabaseFood.getFoodBySeller(sellerId);
-
-        }
-        catch (SellerNotFoundException e)
-        {
-            e.getExMessage();
-        }
-        return food;
+        return DatabaseFood.getFoodBySeller(sellerId);
     }
 
-    @RequestMapping(value = "/food/category/{category}", method = RequestMethod.GET)
+    @RequestMapping(value = "/category/{category}", method = RequestMethod.GET)
     public ArrayList<Food> getFoodByCategory(@PathVariable FoodCategory category) {
         ArrayList<Food> food = null;
         food = DatabaseFood.getFoodByCategory(category);
         return food;
     }
 
-    @RequestMapping(value = "/food", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public Food addFood(@RequestParam(value="name") String name,
                                      @RequestParam(value="price") int price,
                                      @RequestParam(value="category") FoodCategory category,

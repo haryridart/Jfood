@@ -33,6 +33,7 @@ public class DatabaseSeller {
                 return SELLER_DATABASE.get(i);
             }
         }
+        checker = false;
         throw new SellerNotFoundException(id);
     }
 
