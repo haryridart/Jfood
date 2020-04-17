@@ -191,6 +191,7 @@ public class Jfood
         try
         {
             DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId() + 1, food2, DatabaseCustomer.getCustomerById(2)));
+
         }
         catch (CustomerNotFoundException e)
         {
