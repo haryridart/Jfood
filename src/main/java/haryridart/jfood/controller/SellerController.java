@@ -3,11 +3,12 @@ import haryridart.jfood.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-
+@RequestMapping("/seller")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class SellerController
 {
-    @RequestMapping(value = "/seller", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public ArrayList<Seller> getAllSeller() {
         return DatabaseSeller.getSellerDatabase();
     }
@@ -26,7 +27,7 @@ public class SellerController
         return seller;
     }
 
-    @RequestMapping(value = "/seller", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public Seller addSeller(@RequestParam(value="name") String name,
                               @RequestParam(value="email") String email,
                               @RequestParam(value="phoneNumber") String phoneNumber,

@@ -23,10 +23,10 @@ public class CashInvoice extends Invoice
         // initialise instance variables
         super(id,foods,customer);
         setTotalPrice();
-        
+
     }
     /**
-    * Merupakan method overload dari method ClashlessInvoice 
+    * Merupakan method overload dari method ClashlessInvoice
 
 
     */
@@ -36,16 +36,15 @@ public class CashInvoice extends Invoice
         super(id,foods,customer);
         this.deliveryFee = deliveryFee;
         setTotalPrice();
-        
+
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai PAYMENT_TYPE
 
     * @return Method ini mengembalikan nilai PAYMENT_TYPE
     */
-    public PaymentType getPaymentType()
-    {
-         return null;
+    public PaymentType getPaymentType() {
+        return PAYMENT_TYPE;
     }
     /**
     * Method ini digunakan untuk mengembalikan promo
@@ -70,16 +69,14 @@ public class CashInvoice extends Invoice
 
     * @return Method ini tidak mengembalikan nilai.
     */
-    public void setTotalPrice(){
-        int totalFoodPrice =0;
-        for(int i=0;i<getFoods().size();i++){
-            totalFoodPrice = totalFoodPrice+ getFoods().get(i).getPrice() ;
+    public void setTotalPrice() {
+        int totalFoodPrice = 0;
+        for (int i = 0; i < getFoods().size(); i++) {
+            totalFoodPrice = totalFoodPrice + getFoods().get(i).getPrice();
         }
-
-        if( deliveryFee != -1  ){
+        if (deliveryFee != -1) {
             super.totalPrice = totalFoodPrice + deliveryFee;
-        }
-        else{
+        } else {
             super.totalPrice = totalFoodPrice;
         }
     }
@@ -89,24 +86,25 @@ public class CashInvoice extends Invoice
     * @return Method ini tidak mengembalikan nilai.
     */
 
-    public String toString(){
-        String foodName= "";
-        for(int i=0;i<getFoods().size();i++){
-            foodName = foodName+ getFoods().get(i).getName() + " ";
+    @Override
+    public String toString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
+        String foods = "";
+        for(Food foodList : getFoods())
+        {
+            foods = foods + foodList.getName() + ", ";
         }
-        String a = "======INVOICE======\n" +
-                "Food :" + foodName;
-        if(super.getDate() != null){
-            a = a+ "\nDate :" + super.getDate().get(Calendar.DAY_OF_MONTH) + "-" + super.getDate().get(Calendar.MONTH) + "-"+ super.getDate().get(Calendar.YEAR) ;
-        }
-        a= a+"\nCustomer :" + super.getCustomer().getName();
-        if(deliveryFee != 0){
-            a = a+"\nDelivery Fee :"+ deliveryFee;
-        }
-        a = a+ "\nTotal price :" + getTotalPrice()+
-                "\nStatus :" + super.getInvoiceStatus() +
-                "\nPayment Type :" + PAYMENT_TYPE;
-        return a;
+        foods = foods.substring(0, foods.length() - 2);
+
+        return "============INVOICE CASH============"+
+                "\nID :" + super.getId()+
+                "\nFoods :"  + foods+
+                "\nDate :" + sdf.format(super.getDate().getTime())+
+                "\nCustomer :" + super.getCustomer().getName()+
+                "\nDelivery Fee :" + getDeliveryFee()+
+                "\nTotal price :" + totalPrice+
+                "\nStatus :" + super.getInvoiceStatus()+
+                "\nPayment Type :" + getPaymentType();
     }
 }
 

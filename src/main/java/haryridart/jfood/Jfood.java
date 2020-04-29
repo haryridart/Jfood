@@ -55,7 +55,7 @@ public class Jfood
 
 
         /*Location locationObj = new Location("Sukabumi", "Jawa Barat", "Rumah Kita Semua");
-        DatabaseSeller.addSeller((new Seller(DatabaseSeller.getLastId()+1 , "Narumi", "narumi@gmail.com", "085285237993", locationObj)));
+        DatabaseSeller.addSeller((new Seller(DatabaseSeller.getLastId()+1 , "Narumi", "narumi@gmail.com", "085285237993", locationObj)));*/
         try
         {
             DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId()+1, "Ridart", "Ridart@gmail.com", "hary1", new GregorianCalendar(2020, 4, 2)));
@@ -71,7 +71,7 @@ public class Jfood
         catch (EmailAlreadyExistsException e)
         {
             System.out.println(e.getExMessage());
-        }
+        }/*
         try
         {
             DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId()+1, "Narumikunn", "narumi@gmail.com", "narumi", new GregorianCalendar(2020, 1, 2)));

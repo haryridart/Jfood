@@ -22,7 +22,7 @@ public abstract class Invoice
     {
         this.id = id;
         this.foods = foods;
-        this.date=date;
+        this.date = Calendar.getInstance();
         this.customer = customer;
         this.invoiceStatus = InvoiceStatus.Ongoing;
     }
@@ -135,9 +135,7 @@ public abstract class Invoice
     {
         this.customer = customer;
     }
-    public void setInvoiceStatus(){
 
-    }
     /**
     * Method Abstract ini digunakan untuk mencetak dapat digunakan pada class lain.
     */

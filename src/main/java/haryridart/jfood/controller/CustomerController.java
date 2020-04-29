@@ -2,13 +2,16 @@ package haryridart.jfood.controller;
 import haryridart.jfood.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @RequestMapping("/customer")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class CustomerController {
 
-    @RequestMapping("")
-    public String indexPage(@RequestParam(value="name", defaultValue="world") String name) {
-        return "Hello " + name;
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ArrayList<Customer> getAllCustomer() {
+        return DatabaseCustomer.getCustomerDatabase();
     }
 
     @RequestMapping("/{id}")
@@ -17,7 +20,7 @@ public class CustomerController {
         try {
             customer = DatabaseCustomer.getCustomerById(id);
         } catch (CustomerNotFoundException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
             return null;
         }
         return customer;
@@ -25,24 +28,24 @@ public class CustomerController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public Customer registerCustomer(@RequestParam(value="name") String name,
-                                @RequestParam(value="email") String email,
-                                @RequestParam(value="password") String password)
+                                     @RequestParam(value="email") String email,
+                                     @RequestParam(value="password") String password)
     {
         Customer customer = new Customer(DatabaseCustomer.getLastId()+1, name, email, password);
         try {
             DatabaseCustomer.addCustomer(customer);
         } catch (EmailAlreadyExistsException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
             return null;
         }
         return customer;
     }
 
-    @RequestMapping(value="/login", method=RequestMethod.POST)
-    public Customer loginCustomer (@RequestParam(value="email") String email,
-                               @RequestParam(value="password") String password)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Customer loginCustomer(@RequestParam(value="email") String email,
+                                  @RequestParam(value = "password") String password)
     {
-        Customer customerReply = DatabaseCustomer.getCustomerLogin(email, password);
-        return customerReply;
+        return DatabaseCustomer.getCustomerLogin(email,password);
     }
+
 }

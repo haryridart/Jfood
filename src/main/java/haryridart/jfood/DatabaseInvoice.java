@@ -35,18 +35,13 @@ public class DatabaseInvoice
         }
         throw new OngoingInvoiceAlreadyExistsException(invoice);
     }
-    public static Invoice getInvoiceById(int id) throws InvoiceNotFoundException
-    {
-        Invoice value=null;
-        for(Invoice invoice : INVOICE_DATABASE)
-        {
-            if(invoice.getId()==id)
-            {
-                value=invoice;
+    public static Invoice getInvoiceById(int id) throws InvoiceNotFoundException {
+        for(Invoice invoice: INVOICE_DATABASE) {
+            if (invoice.getId() == id) {
+                return invoice;
             }
         }
         throw new InvoiceNotFoundException(id);
-
     }
     public  static  ArrayList<Invoice> getInvoiceByCustomer(int customerId){
 
