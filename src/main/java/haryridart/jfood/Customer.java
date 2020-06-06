@@ -7,7 +7,7 @@
 package haryridart.jfood;
 import java.time.LocalDateTime;
 import java.util.Calendar;
-import java.util.GregorianCalendar; 
+import java.util.GregorianCalendar;
 import java.util.regex.*;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -47,8 +47,8 @@ public class Customer
         setJoinDate (year, month, dayOfMonth);
         setEmail(email);
         setPassword(password);
-        
-        
+
+
     }
     public Customer(int id,String name,String email,String password)
     {

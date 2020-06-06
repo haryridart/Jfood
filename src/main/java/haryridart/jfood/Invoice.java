@@ -13,6 +13,7 @@ public abstract class Invoice
     private int id;
     private ArrayList<Food> foods;
     private Calendar date;
+    private Date dateInsert;
     protected int totalPrice;
     private Customer customer;
     private InvoiceStatus invoiceStatus;
@@ -25,6 +26,16 @@ public abstract class Invoice
         this.date = Calendar.getInstance();
         this.customer = customer;
         this.invoiceStatus = InvoiceStatus.Ongoing;
+    }
+    public Invoice(int id, ArrayList<Food> foods, Customer customer, InvoiceStatus invoiceStatus, Date date, int totalPrice)
+    {
+        this.id = id;
+        this.foods = foods;
+        this.customer = customer;
+        this.invoiceStatus = invoiceStatus;
+        this.dateInsert = date;
+        this.totalPrice = totalPrice;
+
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai Id Invoice
@@ -51,7 +62,11 @@ public abstract class Invoice
     public Calendar getDate()
     {
         return date;
-    }    
+    }
+    public Date getDateInsert()
+    {
+        return dateInsert;
+    }
     /**
     * Method ini digunakan untuk mengembalikan nilai totalPrice Invoice
 

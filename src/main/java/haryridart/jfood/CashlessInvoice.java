@@ -9,7 +9,15 @@ package haryridart.jfood;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.text.SimpleDateFormat;   
+import java.text.SimpleDateFormat;
+/**
+ * <h1>Food Order App with Object Oriented Programming<h1>
+ * CashlessInvoice Class is used to precessing invoice data if customer use cashless for purchases.
+ * Cashlessinvoice is subclass of an Invoice class.
+ * <p>
+ * @author Hary Teguh Gurun Gala Ridart
+ * @version 2020-06-06
+ */
 public class CashlessInvoice extends Invoice
 {
     // instance variables - replace the example below with your own
@@ -17,10 +25,8 @@ public class CashlessInvoice extends Invoice
     private Promo promo;
 
     /**
-    * Merupakan constructor dari Class Food untuk membuat Food
-
-
-    */
+     * Merupakan constructor dari Class Food untuk membuat Cashless Invoice
+     */
     public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer)
     {
         // initialise instance variables
@@ -28,44 +34,44 @@ public class CashlessInvoice extends Invoice
         setTotalPrice();
     }
     /**
-    * Merupakan method overload dari method ClashlessInvoice 
-
-    */
+     * Merupakan method overload dari method ClashlessInvoice
+     */
     public CashlessInvoice(int id, ArrayList<Food> food, Customer customer,Promo promo)
     {
         // put your code here
         super(id,food,customer);
         this.promo = promo;
         setTotalPrice();
-        
+
+    }
+    public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer, Promo promo, InvoiceStatus invoiceStatus, Date date, int total_price)
+    {
+        super(id, foods, customer, invoiceStatus, date, total_price);
+        this.promo = promo;
     }
     /**
-    * Method ini digunakan untuk mengembalikan nilai PAYMENT_TYPE
-
-    */
+     * Method ini digunakan untuk mengembalikan nilai PAYMENT_TYPE
+     */
     public PaymentType getPaymentType() {
         return PAYMENT_TYPE;
     }
     /**
-    * Method ini digunakan untuk mengembalikan promo
-
-    */
+     * Method ini digunakan untuk mengembalikan promo
+     */
     public Promo getPromo()
     {
         return promo;
     }
     /**
-    * Method ini digunakan untuk menetapkan promo
-
-    */
+     * Method ini digunakan untuk menetapkan promo
+     */
     public void setPromo (Promo promo)
     {
         this.promo = promo;
     }
     /**
-    * Method ini digunakan untuk menetapkan nilai dengan ketentuan tertentu
-
-    */
+     * Method ini digunakan untuk menetapkan nilai dengan ketentuan tertentu
+     */
     public void setTotalPrice(){
         int totalFoodPrice =0;
         for(int i=0;i<getFoods().size();i++){
@@ -85,9 +91,8 @@ public class CashlessInvoice extends Invoice
         }
     }
     /**
-    * Method ini digunakan untuk mencetak data CashlessInvoice
-
-    */
+     * Method ini digunakan untuk mencetak data CashlessInvoice
+     */
 
     public String toString() {
 

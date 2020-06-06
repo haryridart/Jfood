@@ -14,10 +14,8 @@ public class CashInvoice extends Invoice
     private int deliveryFee;
 
     /**
-    * Merupakan constructor dari Class Food untuk membuat Food
-
-
-    */
+     * Merupakan constructor dari Class Food untuk membuat Food
+     */
     public CashInvoice(int id, ArrayList<Food> foods, Customer customer)
     {
         // initialise instance variables
@@ -26,49 +24,49 @@ public class CashInvoice extends Invoice
 
     }
     /**
-    * Merupakan method overload dari method ClashlessInvoice
-
-
-    */
+     * Merupakan method overload dari method ClashlessInvoice
+     */
     public CashInvoice(int id, ArrayList<Food> foods, Customer customer, int deliveryFee)
     {
-        // put your code here
+
         super(id,foods,customer);
         this.deliveryFee = deliveryFee;
         setTotalPrice();
 
     }
+    public CashInvoice(int id, ArrayList<Food> foods, Customer customer, int deliveryFee, InvoiceStatus invoiceStatus, Date date, int totalPrice)
+    {
+        // initialise instance variables
+        super (id, foods, customer, invoiceStatus, date, totalPrice);
+        this.deliveryFee = deliveryFee;
+    }
     /**
-    * Method ini digunakan untuk mengembalikan nilai PAYMENT_TYPE
-
-    * @return Method ini mengembalikan nilai PAYMENT_TYPE
-    */
+     * Method ini digunakan untuk mengembalikan nilai PAYMENT_TYPE
+     * @return Method ini mengembalikan nilai PAYMENT_TYPE
+     */
     public PaymentType getPaymentType() {
         return PAYMENT_TYPE;
     }
     /**
-    * Method ini digunakan untuk mengembalikan promo
-
-    * @return Method ini mengembalikan nilai promo
-    */
+     * Method ini digunakan untuk mengembalikan promo
+     * @return Method ini mengembalikan nilai promo
+     */
     public int getDeliveryFee()
     {
         return deliveryFee;
     }
     /**
-    * Method ini digunakan untuk menetapkan promo
-
-    * @return Method ini tidak mengembalikan nilai.
-    */
+     * Method ini digunakan untuk menetapkan promo
+     * @return Method ini tidak mengembalikan nilai.
+     */
     public void setDeliveryFee (int deliveryFee)
     {
         this.deliveryFee = deliveryFee;
     }
     /**
-    * Method ini digunakan untuk menetapkan nilai dengan ketentuan tertentu
-
-    * @return Method ini tidak mengembalikan nilai.
-    */
+     * Method ini digunakan untuk menetapkan nilai dengan ketentuan tertentu
+     * @return Method ini tidak mengembalikan nilai.
+     */
     public void setTotalPrice() {
         int totalFoodPrice = 0;
         for (int i = 0; i < getFoods().size(); i++) {
@@ -81,10 +79,9 @@ public class CashInvoice extends Invoice
         }
     }
     /**
-    * Method ini digunakan untuk mencetak data CashlessInvoice
-
-    * @return Method ini tidak mengembalikan nilai.
-    */
+     * Method ini digunakan untuk mencetak data CashlessInvoice
+     * @return Method ini tidak mengembalikan nilai.
+     */
 
     @Override
     public String toString() {
