@@ -2,25 +2,37 @@ package haryridart.jfood;
 import java.util.ArrayList;
 
 /**
- * Write a description of class DatabasePromo here.
- *
- * @author (Hary Ridart)
- * @version (02-04-2020)
+ * <h1>Food Order App with Object Oriented Programming<h1>
+ * This DatabasePromo Class is used to precessing database of promo
+ * <p>
+ * @author Hary Teguh Gurun Gala Ridart
+ * @version 2020-06-06
  */
 public class DatabasePromo {
-    // instance variables - replace the example below with your own
+    // instance variables
     private static ArrayList<Promo> PROMO_DATABASE = new ArrayList<Promo>();
     private static int lastId = 0;
-
+    /**
+     * This is getPromoDatabase method, that is used to get data of all promo in database
+     * @return PROMO_DATABASE, return promo object in array list
+     */
     public static ArrayList<Promo> getPromoDatabase()
     {
         return PROMO_DATABASE;
     }
+    /**
+     * This is getLastId method, that is used to get last id of promo in database
+     * @return lastId, return promo id
+     */
     public static int getLastId()
     {
         return lastId;
     }
-
+    /**
+     * This is getPromoById method, that is used to get data of promo in database
+     * @params id, this is parameter to select promo by id
+     * @return promo, return promo object that is selected
+     */
     public static  Promo getPromoById(int id) throws PromoNotFoundException
     {
         boolean checker = false;
@@ -33,6 +45,11 @@ public class DatabasePromo {
         }
         throw new PromoNotFoundException(id);
     }
+    /**
+     * This is getPromoByCode method, that is used to get data of promo in database
+     * @params code, this is parameter to select promo by code
+     * @return promo, return promo object that is selected
+     */
     public static Promo getPromoByCode(String code) {
         for (Promo promo: PROMO_DATABASE) {
             if (promo.getCode().equals(code)) {
@@ -41,6 +58,12 @@ public class DatabasePromo {
         }
         return null;
     }
+    /**
+     * This is addPromo method, that is used to add promo in database
+     * @params promo, this is parameter to insert promo object into database
+     * @return true, if add is succeeded
+     * @return false, if add is not succeeded
+     */
     public static boolean addPromo(Promo promo) throws PromoCodeAlreadyExistsException
     {
         boolean samePromoCode = false;
@@ -80,6 +103,12 @@ public class DatabasePromo {
         }
         return true;
     }
+    /**
+     * This is removePromo method, that is used to remove data of promo in database
+     * @params id, this is parameter to select promo by id
+     * @return true, if remove is succeeded
+     * @return false, if remove is not succeeded
+     */
     public static  boolean removePromo(int id) throws PromoNotFoundException
     {
         boolean checker = false;

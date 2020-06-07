@@ -48,7 +48,7 @@ public class DatabaseCustomerPostgre extends DatabaseConnectionPostgre{
             while(rs.next()){
                 id = rs.getInt("id");
             }
-            //customer = new Customer(id, name, email, password);
+
             statement.close();
             c.close();
         } catch (Exception e) {

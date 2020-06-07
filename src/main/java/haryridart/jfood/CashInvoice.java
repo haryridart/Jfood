@@ -1,6 +1,7 @@
 /**
- * Write a description of class CashlessInvoice here.
- *
+ * <h1>Food Order App with Object Oriented Programming<h1>
+ * CashInvoice Class digunakan untuk processing invoice data jika custonmer menggunakan cash untuk pembayra
+ * CashInvoice merupakan subclass dari Invoice Class
  * @author Hary Ridart
  * @version 2020-03-12
  */

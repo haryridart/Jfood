@@ -3,7 +3,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+/**
+ * <h1>Food Order App with Object Oriented Programming<h1>
+ * This DatabasePromoPostgre Class is used to precessing database of promo
+ * <p>
+ * @author Hary Teguh Gurun Gala Ridart
+ * @version 2020-06-06
+ */
 public class DatabasePromoPostgre extends DatabaseConnectionPostgre {
+    /**
+     * This is insertPromo method, that is used to add promo in database
+     * @params promo, this is parameter to insert promo object into database
+     * @return true, if add is succeeded
+     * @return false, if add is not succeeded
+     */
     public static boolean insertPromo(Promo promo) throws PromoCodeAlreadyExistsException
     {
         Connection c = connection();
@@ -36,7 +49,11 @@ public class DatabasePromoPostgre extends DatabaseConnectionPostgre {
         }
         return true;
     }
-
+    /**
+     * This is getPromoByCode method, that is used to get data of promo in database
+     * @params code, this is parameter to select promo by code
+     * @return promo, return promo object that is selected
+     */
     public static Promo getPromoByCode(String code) throws PromoNotFoundException
     {
         Connection c = connection();
@@ -67,7 +84,11 @@ public class DatabasePromoPostgre extends DatabaseConnectionPostgre {
         }
         return promo;
     }
-
+    /**
+     * This is getPromoById method, that is used to get data of promo in database
+     * @params promoId, this is parameter to select promo by id
+     * @return promo, return promo object that is selected
+     */
     public static Promo getPromoById(int codeId) throws PromoNotFoundException
     {
         Connection c = connection();
@@ -98,7 +119,10 @@ public class DatabasePromoPostgre extends DatabaseConnectionPostgre {
         }
         return promo;
     }
-
+    /**
+     * This is getPromoDatabase method, that is used to get data of all promo in database
+     * @return promos, return promo object in array list
+     */
     public static ArrayList<Promo> getPromoDatabase()
     {
         Connection c = connection();
@@ -130,7 +154,10 @@ public class DatabasePromoPostgre extends DatabaseConnectionPostgre {
         }
         return promos;
     }
-
+    /**
+     * This is getLastPromoId method, that is used to get last id of promo in database
+     * @return id, return promo id
+     */
     public static int getLastPromoId()
     {
         Connection c = connection();

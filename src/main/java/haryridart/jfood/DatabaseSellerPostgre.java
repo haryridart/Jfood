@@ -3,7 +3,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+/**
+ * <h1>Food Order App with Object Oriented Programming<h1>
+ * This DatabaseSellerPostgre Class is used to precessing database of seller
+ * <p>
+ * @author Hary Teguh Gurun Gala Ridart
+ * @version 2020-06-06
+ */
 public class DatabaseSellerPostgre extends DatabaseConnectionPostgre{
+    /**
+     * This is insertSeller method, that is used to add seller in database
+     * @params seller, this is parameter to insert seller object into database
+     * @return true, if add is succeeded
+     * @return false, if add is not succeeded
+     */
     public static boolean insertSeller(Seller seller)
     {
         Connection c = connection();
@@ -28,7 +41,10 @@ public class DatabaseSellerPostgre extends DatabaseConnectionPostgre{
         }
         return true;
     }
-
+    /**
+     * This is getLastSellerId method, that is used to get last id of seller in database
+     * @return id, return seller id
+     */
     public static int getLastSellerId()
     {
         Connection c = connection();
@@ -48,7 +64,11 @@ public class DatabaseSellerPostgre extends DatabaseConnectionPostgre{
         }
         return id;
     }
-
+    /**
+     * This is getSellerById method, that is used to get data of seller in database
+     * @params sellerId, this is parameter to select seller by id
+     * @return seller, return seller object that is selected
+     */
     public static Seller getSellerById(int sellerId) throws SellerNotFoundException
     {
         Connection c = connection();
@@ -83,7 +103,10 @@ public class DatabaseSellerPostgre extends DatabaseConnectionPostgre{
         }
         return seller;
     }
-
+    /**
+     * This is getSellerDatabase method, that is used to get data of all seller in database
+     * @return sellers, return seller object in array list
+     */
     public static ArrayList<Seller> getSellerDatabase()
     {
         Connection c = connection();

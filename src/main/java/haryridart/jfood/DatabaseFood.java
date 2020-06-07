@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class DatabaseFood
 {
-    // Mendefinisikan instance variables 
+
     private static ArrayList<Food> FOOD_DATABASE = new ArrayList<Food>();
     private static int lastId=0;
     /**

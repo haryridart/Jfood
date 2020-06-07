@@ -177,11 +177,8 @@ public class DatabaseInvoicePostgre extends DatabaseConnectionPostgre {
                 payment_type = rs.getString("payment_type");
                 if (payment_type.equals("Cash")){
                     paymentType = PaymentType.Cash;
-                    // public CashInvoice(int id, ArrayList<Food> foods, Customer customer,int deliveryFee)
-                    //public CashInvoice(int id, ArrayList<Food> foods, Customer customer, InvoiceStatus invoiceStatus, Date date)
                     invoice = new CashInvoice(id, foods, customer, delivery_fee, invoiceStatus, date, total_price);
                 }else if (payment_type.equals("Cashless")){
-                    //public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer, Promo promo)
                     paymentType = PaymentType.Cashless;
                     invoice = new CashlessInvoice(id, foods, customer, promo, invoiceStatus, date, total_price);
                 }

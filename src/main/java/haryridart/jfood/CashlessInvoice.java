@@ -11,9 +11,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.text.SimpleDateFormat;
 /**
- * <h1>Food Order App with Object Oriented Programming<h1>
- * CashlessInvoice Class is used to precessing invoice data if customer use cashless for purchases.
- * Cashlessinvoice is subclass of an Invoice class.
+ * * <h1>Food Order App with Object Oriented Programming<h1>
+ * CashlessInvoice Class digunakan untuk processing invoice data jika custonmer menggunakan cashless untuk pembayra
+ * CashlessInvoice merupakan subclass dari Invoice Class
  * <p>
  * @author Hary Teguh Gurun Gala Ridart
  * @version 2020-06-06

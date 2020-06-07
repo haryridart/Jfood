@@ -12,7 +12,14 @@ import java.util.regex.*;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.text.SimpleDateFormat;  
-import java.util.Date;  
+import java.util.Date;
+/**
+ * <h1>Food Order App with Object Oriented Programming<h1>
+ * This Costumer Class is used to precessing costumer data
+ * <p>
+ * @author Hary Teguh Gurun Gala Ridart
+ * @version 2020-06-06
+ */
 public class Customer
 {
     // instance variables - Digunakan pada class Customer
@@ -28,7 +35,7 @@ public class Customer
     * @param name merupakan nama customer
     * @param email merupakan email customer
     * @param password merupakan password customer
-    * @param joidDate merupakan tanggal Daftar customer
+    * @param joinDate merupakan tanggal Daftar customer
     * @return Constructor tidak mengembalikan nilai.
     */
     public Customer(int id,String name,String email,String password,Calendar joinDate)
@@ -39,6 +46,16 @@ public class Customer
         setEmail(email);
         setPassword(password);
     }
+    /**
+     * Merupakan constructor dari Class Customer untuk membuat Customer
+     * @param id merupakan id customer
+     * @param name merupakan nama customer
+     * @param email merupakan email customer
+     * @param password merupakan password customer
+     * @param year merupakan tahun joinDate
+     * @param month merupakan bulan joinDate
+     * @param dayOfMonth merupakan tanggal joinDate
+     */
     public Customer(int id,String name,String email,String password,
     int year, int month, int dayOfMonth)
     {
@@ -47,9 +64,15 @@ public class Customer
         setJoinDate (year, month, dayOfMonth);
         setEmail(email);
         setPassword(password);
-
-
     }
+    /**
+     * Merupakan constructor dari Class Customer untuk membuat Customer
+     * @param id merupakan id customer
+     * @param name merupakan nama customer
+     * @param email merupakan email customer
+     * @param password merupakan password customer
+     * @return Constructor tidak mengembalikan nilai.
+     */
     public Customer(int id,String name,String email,String password)
     {
         this.id = id;

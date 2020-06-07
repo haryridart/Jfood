@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 /**
  * <h1>Food Order App with Object Oriented Programming<h1>
- * FoodController Class is used to access JFood database at food table
+ * InvoiceController Class is used to access JFood database at invoice table
  * <p>
  * @author Hary Teguh Gurun Gala Ridart
  * @version 2020-06-06

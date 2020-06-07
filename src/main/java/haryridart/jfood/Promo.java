@@ -1,7 +1,7 @@
 package haryridart.jfood;
 /**
- * Write a description of class Promo here.
- *
+ * <h1>Food Order App with Object Oriented Programming<h1>
+ * Promo Class digunakan untuk prcessing data promo
  * @author Hary Ridart
  * @version 2020-03-12
  */

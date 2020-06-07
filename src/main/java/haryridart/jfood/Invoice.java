@@ -1,8 +1,10 @@
 package haryridart.jfood;
 /**
- * Class Invoice digunakan untuk Merepresentasikan Invoice transaksi. 
- * @author Hary Ridart
- * @version 2020-03-12
+ * <h1>Food Order App with Object Oriented Programming<h1>
+ * This Invoice Class used to precessing Invoice data
+ * <p>
+ * @author Hary Teguh Gurun Gala Ridart
+ * @version 2020-06-06
  */
 import java.util.*;
 import java.text.SimpleDateFormat;
@@ -18,7 +20,14 @@ public abstract class Invoice
     private Customer customer;
     private InvoiceStatus invoiceStatus;
 
-
+    /**
+     * This is constructor for object of class Invoice
+     * <p>
+     * Updates or changes id, idFood, date, date, customer, totalPrice
+     * @param id - first parameter value of constructor, which becomes invoice identifier
+     * @param foods - second parameter value of constructor that type is arraylist
+     * @param customer - fourth parameter value of constructor, who received the invoice
+     */
     public Invoice(int id, ArrayList<Food> foods, Customer customer)
     {
         this.id = id;
@@ -27,6 +36,16 @@ public abstract class Invoice
         this.customer = customer;
         this.invoiceStatus = InvoiceStatus.Ongoing;
     }
+    /**
+     * This is constructor for object of class Invoice
+     * <p>
+     * Updates or changes id, idFood, date, date, customer, totalPrice
+     * @param id - first parameter value of constructor, which becomes invoice identifier
+     * @param foods - second parameter value of constructor that type is arraylist
+     * @param date - third parameter value of constructor, which becomes invoice date
+     * @param customer - fourth parameter value of constructor, who received the invoice
+     * @param totalPrice - fifth paramter value of constructor, total price value at that invoice
+     */
     public Invoice(int id, ArrayList<Food> foods, Customer customer, InvoiceStatus invoiceStatus, Date date, int totalPrice)
     {
         this.id = id;
@@ -39,7 +58,6 @@ public abstract class Invoice
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai Id Invoice
-
     * @return Method ini mengembalikan nilai int dari id Invoice.
     */
     public int getId()

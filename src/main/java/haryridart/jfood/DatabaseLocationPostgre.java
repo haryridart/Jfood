@@ -11,6 +11,12 @@ import java.util.ArrayList;
  * @version 2020-06-06
  */
 public class DatabaseLocationPostgre extends DatabaseConnectionPostgre{
+    /**
+     * This is insertLocation method, that is used to add location in database
+     * @params location, this is parameter to insert location object into database
+     * @return true, if add is succeeded
+     * @return false, if add is not succeeded
+     */
     public static boolean insertLocation(Location location)
     {
         Connection c = connection();
@@ -34,7 +40,10 @@ public class DatabaseLocationPostgre extends DatabaseConnectionPostgre{
         }
         return true;
     }
-
+    /**
+     * This is getLastLocationId method, that is used to get last id of location in database
+     * @return id, return location id
+     */
     public static int getLastLocationId()
     {
         Connection c = connection();
@@ -54,7 +63,11 @@ public class DatabaseLocationPostgre extends DatabaseConnectionPostgre{
         }
         return id;
     }
-
+    /**
+     * This is getLocationByCity method, that is used to get data of location in database
+     * @params searchCity, this is parameter to select location by city
+     * @return location, return location that is selected
+     */
     public static Location getLocationByCity(String searchCity)
     {
         Connection c = connection();
@@ -83,7 +96,10 @@ public class DatabaseLocationPostgre extends DatabaseConnectionPostgre{
         }
         return location;
     }
-
+    /**
+     * This is getLocationDatabase method, that is used to get data of all location in database
+     * @return locations, return location object in array list
+     */
     public static ArrayList<Location> getLocationDatabase()
     {
         Connection c = connection();

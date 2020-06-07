@@ -77,9 +77,9 @@ public class DatabaseFoodPostgre extends DatabaseConnectionPostgre{
         Food food = null;
         int id = 0;
         String foodName = null;
-        Seller seller = null; // who is seller
-        int price = 0; // Food price
-        FoodCategory foodCategory = null; // Food category
+        Seller seller = null;
+        int price = 0;
+        FoodCategory foodCategory = null;
         try {
             statement = c.prepareStatement("SELECT * FROM food WHERE id=?;");
             statement.setInt(1,foodId);
@@ -132,9 +132,9 @@ public class DatabaseFoodPostgre extends DatabaseConnectionPostgre{
         ArrayList<Food> foods = new ArrayList<>();
         int id = 0;
         String foodName = null;
-        Seller seller = null; // who is seller
-        int price = 0; // Food price
-        FoodCategory foodCategory = null; // Food category
+        Seller seller = null;
+        int price = 0;
+        FoodCategory foodCategory = null;
         try{
             statement = c.prepareStatement("SELECT * FROM food WHERE food_seller =?;");
             statement.setInt(1,sellerId);
@@ -186,9 +186,9 @@ public class DatabaseFoodPostgre extends DatabaseConnectionPostgre{
         ArrayList<Food> foods = new ArrayList<>();
         int id = 0;
         String foodName = null;
-        Seller seller = null; // who is seller
-        int price = 0; // Food price
-        FoodCategory foodCategory = null; // Food category
+        Seller seller = null;
+        int price = 0;
+        FoodCategory foodCategory = null;
         try{
             statement = c.prepareStatement("SELECT * FROM food WHERE food_category =?;");
             statement.setString(1,searchFoodCategory.toString());
@@ -239,9 +239,9 @@ public class DatabaseFoodPostgre extends DatabaseConnectionPostgre{
         ArrayList<Food> foods = new ArrayList<>();
         int id = 0;
         String foodName = null;
-        Seller seller = null; // who is seller
-        int price = 0; // Food price
-        FoodCategory foodCategory = null; // Food category
+        Seller seller = null;
+        int price = 0;
+        FoodCategory foodCategory = null;
         try{
             statement = c.prepareStatement("SELECT * FROM food;");
             ResultSet rs = statement.executeQuery();
